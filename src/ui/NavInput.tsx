@@ -5,15 +5,28 @@ const StyledWrapper = styled.div`
   justify-self: center;
   width: 70%;
   position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  @media screen and (max-width: 975px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 730px) {
+    grid-area: 2 / 1 / 3 / 3;
+  }
 `;
 
 const StyledInput = styled.input`
-  width: 100%;
+  width: 90%;
   margin-left: auto;
-  border: 1px solid var(--color-border);
-  border-radius: 1rem;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem;
   color: var(--color-grey-500);
+  border: none;
+  outline: var(--color-border);
 
   &::placeholder {
     font-size: 1.4rem;
@@ -23,12 +36,12 @@ const StyledInput = styled.input`
 `;
 
 const StyledSearchIcon = styled.span`
-  position: absolute;
-  top: 50%;
-  left: 2%;
-  transform: translate(-40%, -40%);
+  width: 10%;
   font-size: 2rem;
   color: var(--color-grey-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 function NavInput() {

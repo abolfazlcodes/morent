@@ -3,14 +3,18 @@ import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const StyledNavAction = styled.span`
-  border: 1px solid #c3d4e9;
+  border: 1px solid var(--color-border);
   width: 3rem;
   height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  color: #596780;
+  color: var(--color-grey-500);
+
+  @media screen and (max-width: 730px) {
+    display: none;
+  }
 `;
 
 interface NavActionProps {

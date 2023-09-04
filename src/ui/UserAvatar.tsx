@@ -5,6 +5,12 @@ const Wrapper = styled.div`
   width: 4rem;
   height: 4rem;
   border-radius: 100%;
+  cursor: pointer;
+
+  @media screen and (max-width: 730px) {
+    width: 3rem;
+    height: 3rem;
+  }
 `;
 
 const StyledAvatar = styled.img`
