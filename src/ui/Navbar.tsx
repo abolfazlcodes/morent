@@ -14,6 +14,13 @@ const StyledNavbar = styled.nav`
   padding: 2rem 5rem;
   align-items: center;
   column-gap: 2rem;
+
+  @media screen and (max-width: 730px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 2rem 1rem;
+    row-gap: 2rem;
+  }
 `;
 
 function Navbar() {
