@@ -1,10 +1,12 @@
 import GlobalStyles from "./styles/GlobalStyles";
 
+import Navbar from "./ui/Navbar";
+
 function App() {
   return (
     <>
       <GlobalStyles />
-      <h1>Hello Morent</h1>
+      <Navbar />
     </>
   );
 }
