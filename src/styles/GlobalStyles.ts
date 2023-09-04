@@ -16,9 +16,7 @@ const GlobalStyles = createGlobalStyle`
         --color-red-800: #FF4423;
         --color-yellow-500: #FBAD39;
 
-        --color-bg: ##F3F5F7
-        --color-bg-main: #F6F7F9
-
+        --color-bg: ##F3F5F7;
         --color-border: #C3D4E9;
     
         --backdrop-color: rgba(255, 255, 255, 0.1);
@@ -44,9 +42,7 @@ const GlobalStyles = createGlobalStyle`
         --color-red-800: #FF4423;
         --color-yellow-500: #FBAD39;
 
-        --color-bg: ##F3F5F7
-        --color-bg-main: #F6F7F9
-
+        --color-bg: ##F3F5F7;
         --color-border: #C3D4E9;
 
         /* --color-grey-0: #18212f;
@@ -97,7 +93,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--color-grey-700);
+    background-color: var(--color-bg-grey);
 
     transition: color 0.3s, background-color 0.3s;
     min-height: 100vh;
