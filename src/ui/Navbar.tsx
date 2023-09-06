@@ -30,13 +30,13 @@ function Navbar() {
       <NavInput />
 
       <Row>
-        <NavAction link='/'>
+        <NavAction link='/bookmarks'>
           <HiHeart />
         </NavAction>
-        <NavAction link='/'>
+        <NavAction link='/notifications'>
           <HiBell />
         </NavAction>
-        <NavAction link='/'>
+        <NavAction link='/settings'>
           <HiCog6Tooth />
         </NavAction>
 
