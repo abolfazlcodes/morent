@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const StyledLogoTitle = styled.h1`
@@ -13,9 +14,9 @@ const StyledLogoTitle = styled.h1`
 
 function Logo() {
   return (
-    <div>
+    <Link to='/'>
       <StyledLogoTitle>MORENT</StyledLogoTitle>
-    </div>
+    </Link>
   );
 }
 
