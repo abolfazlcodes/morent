@@ -56,12 +56,7 @@ type StyledButtonTypes = {
   variation: "primary" | "secondary";
 };
 
-interface ButtonTypes extends StyledButtonTypes {
-  children: React.ReactNode;
-  onClick?: () => void;
-}
-
-const StyledButton = styled.button<StyledButtonTypes>`
+const Button = styled.button<StyledButtonTypes>`
   border: none;
   box-shadow: var(--shadow-sm);
 
@@ -69,18 +64,9 @@ const StyledButton = styled.button<StyledButtonTypes>`
   ${({ variation }) => variations[variation]}
 `;
 
-// component
-const Button: React.FC<ButtonTypes> = ({
-  children,
-  onClick,
-  size = "medium",
-  variation = "primary",
-}) => {
-  return (
-    <StyledButton variation={variation} size={size} onClick={onClick}>
-      {children}
-    </StyledButton>
-  );
+Button.defaultProps = {
+  size: "medium",
+  variation: "primary",
 };
 
 export default Button;

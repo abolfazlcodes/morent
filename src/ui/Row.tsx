@@ -1,19 +1,40 @@
-import { ReactNode } from "react";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
-const StyledRow = styled.div`
+type StyledRowTypes = {
+  type: "verticalEnd" | "vertical" | "horizontal";
+};
+
+const Row = styled.div<StyledRowTypes>`
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1rem;
+
+  ${(props) =>
+    props.type === "verticalEnd" &&
+    css`
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    `}
+
+  ${(props) =>
+    props.type === "vertical" &&
+    css`
+      align-items: center;
+      gap: 3rem;
+
+      @media screen and (max-width: 768px) {
+      }
+    `}
+
+
+    ${(props) =>
+    props.type === "horizontal" &&
+    css`
+      flex-direction: column;
+    `}
 `;
 
-interface RowProps {
-  children: ReactNode;
-}
-
-function Row({ children }: RowProps) {
-  return <StyledRow>{children}</StyledRow>;
-}
+Row.defaultProps = {
+  type: "vertical",
+};
 
 export default Row;

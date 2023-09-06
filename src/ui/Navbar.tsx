@@ -29,7 +29,7 @@ function Navbar() {
       <Logo />
       <NavInput />
 
-      <Row>
+      <Row type='verticalEnd'>
         <NavAction link='/bookmarks'>
           <HiHeart />
         </NavAction>

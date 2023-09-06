@@ -87,6 +87,7 @@ const GlobalStyles = createGlobalStyle`
     body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--color-bg-grey);
+    height: 100dvh;
 
     transition: color 0.3s, background-color 0.3s;
     min-height: 100vh;
