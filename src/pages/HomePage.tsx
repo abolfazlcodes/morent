@@ -11,13 +11,6 @@ function HomePage() {
         <Advertisement />
       </Row>
 
-      <Header
-        title='popular cars'
-        titleColor='grey'
-        titleType='h4'
-        link='/cars'
-      />
-
       <CardsWrapper />
     </>
   );
