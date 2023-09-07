@@ -2,8 +2,6 @@ import { styled } from "styled-components";
 import CarCard from "./CarCard";
 import car from "../assets/sample car.png";
 import Header from "./Header";
-import { Link } from "react-router-dom";
-import Button from "./Button";
 import TotalCarsOverview from "./TotalCarsOverview";
 
 const StyledWrapper = styled.div`
