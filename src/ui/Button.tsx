@@ -25,11 +25,11 @@ const sizes = {
   `,
 
   large: css`
-    width: 14rem;
+    width: 16rem;
     height: 4.4rem;
     border-radius: 0.4rem;
     padding: 0 2rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   `,
 };
 

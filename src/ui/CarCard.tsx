@@ -1,5 +1,4 @@
 import { HiOutlineHeart } from "react-icons/hi2";
-import car from "../assets/sample car.png";
 import Heading from "./Heading";
 import { GearBox, TankIcon, Users } from "../utils/helpers";
 import Button from "./Button";
@@ -155,32 +154,53 @@ const StyledBgOverlay = styled.div`
 
 interface CarCardProps {
   type?: "typeA" | "typeB";
+  carData: {
+    id: number;
+    name: string;
+    pricePerDay: number;
+    capacity: number;
+    automatic: boolean;
+    tankCapacity: number;
+    category: string;
+    image: string;
+  };
 }
 
-const CarCard = ({ type = "typeA" }: CarCardProps) => {
+const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
+  const {
+    id,
+    automatic,
+    capacity,
+    category,
+    image,
+    name,
+    pricePerDay,
+    tankCapacity,
+  } = carData;
+
   const renderCarDetails = () => {
     if (type === "typeA") {
       return (
         <>
           <StyledCardImageWrapper>
             <StyledBgOverlay />
-            <StyledCardImage type={type} src={car} alt='sample car name' />
+            <StyledCardImage type={type} src={image} alt={name} />
           </StyledCardImageWrapper>
 
           <StyledCardOverview type={type}>
             <StyledCardOverviewDetail>
               <TankIcon />
-              <span>90 L</span>
+              <span>{tankCapacity} L</span>
             </StyledCardOverviewDetail>
 
             <StyledCardOverviewDetail>
               <GearBox />
-              <span>Manual</span>
+              <span>{automatic ? "automatic" : "manual"}</span>
             </StyledCardOverviewDetail>
 
             <StyledCardOverviewDetail>
               <Users />
-              <span>2 people</span>
+              <span>{capacity} people</span>
             </StyledCardOverviewDetail>
           </StyledCardOverview>
         </>
@@ -190,23 +210,23 @@ const CarCard = ({ type = "typeA" }: CarCardProps) => {
         <StyledCardDetailsTypeB>
           <StyledCardImageWrapper>
             <StyledBgOverlay />
-            <StyledCardImage type={type} src={car} alt='sample car name' />
+            <StyledCardImage type={type} src={image} alt={name} />
           </StyledCardImageWrapper>
 
           <StyledCardOverview type={type}>
             <StyledCardOverviewDetail>
               <TankIcon />
-              <span>90 L</span>
+              <span>{tankCapacity} L</span>
             </StyledCardOverviewDetail>
 
             <StyledCardOverviewDetail>
               <GearBox />
-              <span>Manual</span>
+              <span>{automatic ? "automatic" : "manual"}</span>
             </StyledCardOverviewDetail>
 
             <StyledCardOverviewDetail>
               <Users />
-              <span>2 people</span>
+              <span>{capacity} people</span>
             </StyledCardOverviewDetail>
           </StyledCardOverview>
         </StyledCardDetailsTypeB>
@@ -219,9 +239,9 @@ const CarCard = ({ type = "typeA" }: CarCardProps) => {
       <StyledCardHeader>
         <div>
           <Heading as='h3' color='black'>
-            Koenigsegg
+            {name}
           </Heading>
-          <StyledCardCategory>sport</StyledCardCategory>
+          <StyledCardCategory>{category}</StyledCardCategory>
         </div>
 
         <StyledCardIcon>
@@ -234,13 +254,15 @@ const CarCard = ({ type = "typeA" }: CarCardProps) => {
 
       <StyledCardFooter>
         <div>
-          <StyledCardPrice>$99.00/</StyledCardPrice>
+          <StyledCardPrice>${pricePerDay}.00/</StyledCardPrice>
           <StyledCardPriceDay>day</StyledCardPriceDay>
         </div>
 
-        <Button size='small' variation='primary'>
-          <Link to='/cars/1'>Rent now</Link>
-        </Button>
+        <Link to={`/cars/${id}`}>
+          <Button size='small' variation='primary'>
+            Rent now
+          </Button>
+        </Link>
       </StyledCardFooter>
     </StyledArticle>
   );
