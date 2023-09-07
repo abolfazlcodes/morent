@@ -44,7 +44,7 @@ const Heading = styled.h1`
     props.color === "black" &&
     css`
       font-size: 2rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--color-black);
     `}
 
@@ -75,7 +75,7 @@ const Heading = styled.h1`
       color: var(--color-grey-400);
     `}
 
-  line-height: 1.4
+  line-height: 1.4;
 `;
 
 export default Heading;
