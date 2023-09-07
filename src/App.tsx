@@ -1,27 +1,36 @@
+import { Route, Routes } from "react-router-dom";
 import GlobalStyles from "./styles/GlobalStyles";
-import Advertisement from "./ui/Advertisement";
 
-import Navbar from "./ui/Navbar";
-import Row from "./ui/Row";
+import { Suspense, lazy } from "react";
+import AppLayout from "./ui/AppLayout";
+import PageNotFound from "./pages/PageNotFound";
+import Spinner from "./ui/Spinner";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const Settings = lazy(() => import("./pages/Settings"));
+const Signup = lazy(() => import("./pages/Signup"));
+const Login = lazy(() => import("./pages/Login"));
+const Account = lazy(() => import("./pages/Account"));
+const Cars = lazy(() => import("./pages/Cars"));
+const CarDetails = lazy(() => import("./pages/CarDetails"));
 
 function App() {
   return (
-    <>
+    <Suspense fallback={<Spinner />}>
       <GlobalStyles />
-      <Navbar />
-
-      <main
-        style={{
-          maxWidth: "170rem",
-          margin: "auto",
-          padding: "3rem 1.5rem",
-        }}
-      >
-        <Row type='vertical'>
-          <Advertisement />
-        </Row>
-      </main>
-    </>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path='/cars' element={<Cars />} />
+          <Route path='/car/:carId' element={<CarDetails />} />
+          <Route path='/settings' element={<Settings />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/account' element={<Account />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 
