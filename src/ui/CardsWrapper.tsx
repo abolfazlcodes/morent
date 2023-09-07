@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 import CarCard from "./CarCard";
 
 const StyledWrapper = styled.div`
-  border: 1px solid black;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
   justify-items: center;
@@ -15,6 +14,7 @@ function CardsWrapper() {
   return (
     <StyledWrapper>
       <CarCard />
+      <CarCard type='typeB' />
     </StyledWrapper>
   );
 }
