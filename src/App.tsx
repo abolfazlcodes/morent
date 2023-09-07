@@ -22,7 +22,7 @@ function App() {
         <Route element={<AppLayout />}>
           <Route index element={<HomePage />} />
           <Route path='/cars' element={<Cars />} />
-          <Route path='/car/:carId' element={<CarDetails />} />
+          <Route path='/cars/:carId' element={<CarDetails />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
