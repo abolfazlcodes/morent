@@ -9,24 +9,27 @@ const sizes = {
   `,
 
   small: css`
-    width: 9rem;
-    height: 4.4rem;
+    width: 11rem;
+    height: 4rem;
     border-radius: 0.4rem;
     padding: 0 2rem;
+    font-size: 1.2rem;
   `,
 
   medium: css`
-    width: 11rem;
-    height: 4.4rem;
+    width: 13rem;
+    height: 4.2rem;
     border-radius: 0.4rem;
     padding: 0 2rem;
+    font-size: 1.4rem;
   `,
 
   large: css`
-    width: 13.6rem;
+    width: 14rem;
     height: 4.4rem;
     border-radius: 0.4rem;
     padding: 0 2rem;
+    font-size: 1.6rem;
   `,
 };
 

@@ -20,6 +20,7 @@ const Row = styled.div<StyledRowTypes>`
     css`
       align-items: center;
       gap: 3rem;
+      margin-bottom: 3.5rem;
 
       @media screen and (max-width: 768px) {
       }
