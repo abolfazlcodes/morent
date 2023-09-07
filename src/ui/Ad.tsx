@@ -9,7 +9,7 @@ type StyledAdTypes = {
 const StyledAd = styled.article<StyledAdTypes>`
   position: relative;
   width: 50%;
-  height: max-content;
+  height: 36rem;
   padding: 1.5rem;
   border-radius: 1rem;
 
@@ -37,6 +37,7 @@ const StyledAd = styled.article<StyledAdTypes>`
 
   @media screen and (max-width: 975px) {
     width: 100%;
+    height: 26rem;
   }
 `;
 
@@ -57,10 +58,10 @@ const StyledAdImage = styled.img`
   position: absolute;
   bottom: 0;
   right: 5%;
-  width: 30rem;
+  width: 45rem;
 
   @media screen and (max-width: 975px) {
-    width: 25rem;
+    width: 40rem;
   }
 
   @media screen and (max-width: 550px) {
