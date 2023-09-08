@@ -7,14 +7,18 @@ const GlobalStyles = createGlobalStyle`
         --color-white: #fff;
         --color-black: #1A202C;
         --color-black-300: #13131399;
+        --color-grey-50: #f9fafb;
+        --color-grey-100: #f3f4f6;
+        --color-grey-300: #d1d5db;
         --color-grey-400: #90A3BF;
         --color-grey-500: #596780;
+        --color-grey-700: #374151;
         --color-bg-grey: #F6F7F9;
-       --color-blue-600: #54A6FF;
+        --color-blue-600: #54A6FF;
         --color-blue-700: #4099f9;
         --color-blue-800: #3563E9;
         --color-blue-hover: #0a277b;
-        --color-red-700: #ED3F3F;
+        --color-red-700: #b91c1c;
         --color-red-800: #FF4423;
         --color-yellow-500: #FBAD39;
 

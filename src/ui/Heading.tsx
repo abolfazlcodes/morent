@@ -1,7 +1,7 @@
 import { css, styled } from "styled-components";
 
 const Heading = styled.h1`
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 
   ${(props) =>
     props.as === "h1" &&
