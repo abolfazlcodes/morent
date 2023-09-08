@@ -1,18 +1,19 @@
 import React, { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { CarProps } from "../interfaces/cars.interface";
+import { BookmarksContextType } from "../interfaces/contexts.interface";
 
 interface BookmarksProviderProps {
   children: React.ReactNode;
 }
 
-const BookmarksContext = createContext({});
+const BookmarksContext = createContext<BookmarksContextType | null>(null);
 
 function BookmarksProvider({ children }: BookmarksProviderProps) {
   const { value: bookmarks, setValue } = useLocalStorage([], "bookmarks");
 
-  const handleAddBookmark = (data: CarProps) => {
-    setValue((prevBookmarks: CarProps[]) => [...prevBookmarks, data]);
+  const handleAddBookmark = (carData: CarProps) => {
+    setValue((prevBookmarks: CarProps[]) => [...prevBookmarks, carData]);
   };
 
   const handleRemoveBookmark = (carId: number) => {

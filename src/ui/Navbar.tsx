@@ -6,6 +6,8 @@ import NavInput from "./NavInput";
 import Row from "./Row";
 import NavAction from "./NavAction";
 import UserAvatar from "./UserAvatar";
+import { useBookmarks } from "../context/Bookmarks";
+import { BookmarksContextType } from "../interfaces/contexts.interface";
 
 const StyledNavbar = styled.nav`
   background-color: var(--color-white);
@@ -24,13 +26,15 @@ const StyledNavbar = styled.nav`
 `;
 
 function Navbar() {
+  const { bookmarks } = useBookmarks() as BookmarksContextType;
+
   return (
     <StyledNavbar>
       <Logo />
       <NavInput />
 
       <Row type='verticalEnd'>
-        <NavAction link='/bookmarks'>
+        <NavAction link='/bookmarks' badge totalBookmarks={bookmarks.length}>
           <HiHeart />
         </NavAction>
         <NavAction link='/notifications'>
