@@ -4,6 +4,7 @@ import { GearBox, TankIcon, Users } from "../utils/helpers";
 import Button from "./Button";
 import { css, styled } from "styled-components";
 import { Link } from "react-router-dom";
+import { CarProps } from "../interfaces/cars.interface";
 
 type StyledItemsProps = {
   type: "typeA" | "typeB";
@@ -154,16 +155,7 @@ const StyledBgOverlay = styled.div`
 
 interface CarCardProps {
   type?: "typeA" | "typeB";
-  carData: {
-    id: number;
-    name: string;
-    pricePerDay: number;
-    capacity: number;
-    automatic: boolean;
-    tankCapacity: number;
-    category: string;
-    image: string;
-  };
+  carData: CarProps;
 }
 
 const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
