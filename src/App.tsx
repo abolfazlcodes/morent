@@ -24,11 +24,11 @@ function App() {
           <Route path='/cars' element={<Cars />} />
           <Route path='/cars/:carId' element={<CarDetails />} />
           <Route path='/settings' element={<Settings />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
           <Route path='/account' element={<Account />} />
-          <Route path='*' element={<PageNotFound />} />
         </Route>
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </Suspense>
   );
