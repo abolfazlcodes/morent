@@ -2,6 +2,7 @@ import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
 import Logo from "../ui/Logo";
 import Heading from "../ui/Heading";
+import LinkButton from "../ui/LinkButton";
 
 const LoginLayout = styled.main`
   min-height: 100vh;
@@ -14,23 +15,27 @@ const LoginLayout = styled.main`
   border: 1px solid black;
 `;
 
-const LoginLogoWrapper = styled.div`
+const WrapperCenter = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 `;
 
 function Login() {
   return (
     <LoginLayout>
-      <LoginLogoWrapper>
+      <WrapperCenter>
         <Logo />
         <Heading as='h4' color='black'>
-          Log in to your account
+          Welcome back! Log in to your account
         </Heading>
-      </LoginLogoWrapper>
+      </WrapperCenter>
       <LoginForm />
+
+      <WrapperCenter>
+        <LinkButton to='/signup'>New to Morent? Create your account</LinkButton>
+      </WrapperCenter>
     </LoginLayout>
   );
 }
