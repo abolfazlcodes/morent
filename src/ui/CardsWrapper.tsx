@@ -97,26 +97,6 @@ const fakeCarsData = [
     category: "SUV",
     image: car,
   },
-  {
-    id: 9,
-    name: "Koenigsegg",
-    pricePerDay: 99,
-    capacity: 2,
-    automatic: false,
-    tankCapacity: 90,
-    category: "Sport",
-    image: car,
-  },
-  {
-    id: 10,
-    name: "Nissan GT - R",
-    pricePerDay: 100,
-    capacity: 2,
-    automatic: true,
-    tankCapacity: 80,
-    category: "Sport",
-    image: car,
-  },
 ];
 
 function CardsWrapper() {

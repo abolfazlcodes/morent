@@ -12,7 +12,6 @@ const SignUpLayout = styled.main`
   justify-content: center;
   gap: 3.2rem;
   background-color: var(--color-grey-50);
-  border: 1px solid black;
 `;
 
 const WrapperCenter = styled.div`

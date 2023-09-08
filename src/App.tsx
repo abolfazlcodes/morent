@@ -5,6 +5,7 @@ import { Suspense, lazy } from "react";
 import AppLayout from "./ui/AppLayout";
 import PageNotFound from "./pages/PageNotFound";
 import Spinner from "./ui/Spinner";
+import { Toaster } from "react-hot-toast";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Settings = lazy(() => import("./pages/Settings"));
@@ -30,6 +31,30 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
+
+      <Toaster
+        position='top-center'
+        reverseOrder={true}
+        gutter={12}
+        containerStyle={{
+          margin: "8px",
+        }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px",
+            backgroundColor: "var(--color-white)",
+            color: "var(--color-grey-700)",
+          },
+        }}
+      />
     </Suspense>
   );
 }
