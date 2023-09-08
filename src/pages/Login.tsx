@@ -5,14 +5,13 @@ import Heading from "../ui/Heading";
 import LinkButton from "../ui/LinkButton";
 
 const LoginLayout = styled.main`
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 48rem;
   align-content: center;
   justify-content: center;
   gap: 3.2rem;
   background-color: var(--color-grey-50);
-  border: 1px solid black;
 `;
 
 const WrapperCenter = styled.div`

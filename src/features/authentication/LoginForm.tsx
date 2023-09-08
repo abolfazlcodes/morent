@@ -5,11 +5,9 @@ import FormRowVertical from "../../ui/FormRowVertical";
 import Button from "../../ui/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect } from "react";
-
-type LoginFormTypes = {
-  email: string;
-  password: string;
-};
+import { LoginFormProps } from "../../interfaces/auth.interface";
+import { useLogin } from "./useLogin";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function LoginForm() {
   const {
@@ -18,12 +16,11 @@ function LoginForm() {
     reset,
     register,
     setFocus,
-  } = useForm<LoginFormTypes>();
+  } = useForm<LoginFormProps>();
+  const { isLoading, login } = useLogin();
 
-  const onSubmit: SubmitHandler<LoginFormTypes> = (data) => {
-    console.log(data);
-
-    // resetting the form
+  const onSubmit: SubmitHandler<LoginFormProps> = (data) => {
+    login(data);
     reset();
   };
 
@@ -48,6 +45,7 @@ function LoginForm() {
                 "Incorrect email format. Please enter a valid email address",
             },
           })}
+          disabled={isLoading}
         />
       </FormRowVertical>
       <FormRowVertical label='Password' error={errors.password?.message}>
@@ -59,12 +57,12 @@ function LoginForm() {
           {...register("password", {
             required: "Please enter your password",
           })}
+          disabled={isLoading}
         />
       </FormRowVertical>
       <FormRowVertical>
-        <Button size='large' variation='primary'>
-          Login
-          {/* {!isLoading ? "Login" : <SpinnerMini />} */}
+        <Button size='large' variation='primary' disabled={isLoading}>
+          {!isLoading ? "Login" : <SpinnerMini />}
         </Button>
       </FormRowVertical>
     </Form>
