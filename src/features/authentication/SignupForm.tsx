@@ -5,14 +5,9 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRowVertical from "../../ui/FormRowVertical";
 import Input from "../../ui/Input";
-
-type SignUpFormTypes = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+import { SignupFormProps } from "../../interfaces/auth.interface";
+import { useSignup } from "./useSignup";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function SignupForm() {
   const {
@@ -22,11 +17,11 @@ function SignupForm() {
     handleSubmit,
     setFocus,
     getValues,
-  } = useForm<SignUpFormTypes>();
+  } = useForm<SignupFormProps>();
+  const { isLoading, signup } = useSignup();
 
-  const onSubmit: SubmitHandler<SignUpFormTypes> = (data) => {
-    console.log(data);
-    console.log(errors);
+  const onSubmit: SubmitHandler<SignupFormProps> = (data) => {
+    signup(data);
 
     // resetting the form
     reset();
@@ -51,6 +46,7 @@ function SignupForm() {
               message: "It should at least contain two characters",
             },
           })}
+          disabled={isLoading}
         />
       </FormRowVertical>
 
@@ -67,6 +63,7 @@ function SignupForm() {
               message: "It should at least contain two characters",
             },
           })}
+          disabled={isLoading}
         />
       </FormRowVertical>
 
@@ -84,6 +81,7 @@ function SignupForm() {
                 "Incorrect email format. Please enter a valid email address",
             },
           })}
+          disabled={isLoading}
         />
       </FormRowVertical>
 
@@ -104,6 +102,7 @@ function SignupForm() {
               message: "Password must contain an uppercase letter and a number",
             },
           })}
+          disabled={isLoading}
         />
       </FormRowVertical>
 
@@ -120,12 +119,13 @@ function SignupForm() {
             validate: (value) =>
               getValues().password === value || "Passwords need to match",
           })}
+          disabled={isLoading}
         />
       </FormRowVertical>
 
       <FormRowVertical>
-        <Button size='large' variation='primary'>
-          Create new account
+        <Button size='large' variation='primary' disabled={isLoading}>
+          {!isLoading ? "Create new account" : <SpinnerMini />}
         </Button>
       </FormRowVertical>
     </Form>

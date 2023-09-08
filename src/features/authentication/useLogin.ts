@@ -8,7 +8,6 @@ export function useLogin() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  // import the react query
   const { isLoading, mutate: login } = useMutation({
     mutationFn: (data: LoginFormProps) => loginApi(data),
 
