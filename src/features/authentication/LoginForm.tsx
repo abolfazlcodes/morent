@@ -42,6 +42,7 @@ function LoginForm() {
           {...register("email", {
             required: "Please enter your email",
             pattern: {
+              // eslint-disable-next-line no-useless-escape
               value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
               message:
                 "Incorrect email format. Please enter a valid email address",
