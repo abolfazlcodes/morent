@@ -1,8 +1,11 @@
 import { styled } from "styled-components";
+import { SwiperSlide } from "swiper/react";
 import CarCard from "./CarCard";
 import car from "../assets/sample car.png";
 import Header from "./Header";
 import TotalCarsOverview from "./TotalCarsOverview";
+
+import SwiperComponent from "./SwiperComponent";
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -125,8 +128,17 @@ function CardsWrapper() {
         titleType='h4'
         link='/cars'
       />
-      <div>Swiper component</div>
+
+      <SwiperComponent>
+        {fakeCarsData.slice(0, 7).map((item) => (
+          <SwiperSlide key={item.id}>
+            <CarCard carData={item} />
+          </SwiperSlide>
+        ))}
+      </SwiperComponent>
+
       <br />
+
       <Header
         title='recommended cars'
         titleColor='grey'
