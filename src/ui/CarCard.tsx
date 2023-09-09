@@ -1,9 +1,10 @@
-import { HiOutlineHeart } from "react-icons/hi2";
 import Heading from "./Heading";
 import { GearBox, TankIcon, Users } from "../utils/helpers";
 import Button from "./Button";
 import { css, styled } from "styled-components";
 import { Link } from "react-router-dom";
+import { CarProps } from "../interfaces/cars.interface";
+import BookmarkHeart from "./BookmarkHeart";
 
 type StyledItemsProps = {
   type: "typeA" | "typeB";
@@ -47,11 +48,6 @@ const StyledCardCategory = styled.span`
   font-size: 1.3rem;
   text-transform: capitalize;
   font-weight: 500;
-`;
-
-const StyledCardIcon = styled.span`
-  font-size: 2.2rem;
-  cursor: pointer;
 `;
 
 const StyledCardImageWrapper = styled.div`
@@ -154,16 +150,7 @@ const StyledBgOverlay = styled.div`
 
 interface CarCardProps {
   type?: "typeA" | "typeB";
-  carData: {
-    id: number;
-    name: string;
-    pricePerDay: number;
-    capacity: number;
-    automatic: boolean;
-    tankCapacity: number;
-    category: string;
-    image: string;
-  };
+  carData: CarProps;
 }
 
 const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
@@ -244,9 +231,7 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
           <StyledCardCategory>{category}</StyledCardCategory>
         </div>
 
-        <StyledCardIcon>
-          <HiOutlineHeart />
-        </StyledCardIcon>
+        <BookmarkHeart carData={carData} />
       </StyledCardHeader>
 
       {/*// ? rendering details based on their types */}
