@@ -6,8 +6,6 @@ import Footer from "./Footer";
 const Main = styled.main`
   max-width: 170rem;
   margin: auto;
-  padding: 1rem 1.5rem;
-  border: 1px solid red;
 `;
 
 function AppLayout() {

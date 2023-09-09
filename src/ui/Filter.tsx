@@ -3,8 +3,8 @@ import Checkbox from "./Checkbox";
 import FormRowVertical from "./FormRowVertical";
 
 const StyledFilter = styled.aside`
-  border: 1px solid black;
   background-color: var(--color-white);
+  padding: 1rem;
 `;
 
 const StyledCategoryText = styled.span`

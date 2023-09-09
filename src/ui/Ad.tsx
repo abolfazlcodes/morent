@@ -11,6 +11,7 @@ const StyledAd = styled.article<StyledAdTypes>`
   width: 50%;
   height: 36rem;
   padding: 1.5rem;
+  margin: 2rem 2.5rem;
   border-radius: 1rem;
 
   ${(props) =>
