@@ -12,22 +12,23 @@ const BookmarksContext = createContext<BookmarksContextType | null>(null);
 function BookmarksProvider({ children }: BookmarksProviderProps) {
   const { value: bookmarks, setValue } = useLocalStorage([], "bookmarks");
 
-  const handleAddBookmark = (carData: CarProps) => {
-    setValue((prevBookmarks: CarProps[]) => [...prevBookmarks, carData]);
-  };
-
-  const handleRemoveBookmark = (carId: number) => {
-    setValue((prevBookmarks: CarProps[]) =>
-      prevBookmarks.filter((bookmark) => bookmark.id !== carId)
+  const handleBookmark = (carData: CarProps) => {
+    const isAlreadyBookmarked = bookmarks.find(
+      (bookmark: CarProps) => bookmark.id === carData.id
     );
+
+    if (isAlreadyBookmarked)
+      setValue((prevBookmarks: CarProps[]) =>
+        prevBookmarks.filter((bookmark) => bookmark.id !== carData.id)
+      );
+    else setValue((prevBookmarks: CarProps[]) => [...prevBookmarks, carData]);
   };
 
   return (
     <BookmarksContext.Provider
       value={{
         bookmarks,
-        handleAddBookmark,
-        handleRemoveBookmark,
+        handleBookmark,
       }}
     >
       {children}
