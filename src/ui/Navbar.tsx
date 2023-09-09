@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-import { HiHeart, HiCog6Tooth, HiBell } from "react-icons/hi2";
+import { HiHeart, HiCog6Tooth } from "react-icons/hi2";
 import Logo from "./Logo";
 import NavInput from "./NavInput";
 import Row from "./Row";

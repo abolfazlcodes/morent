@@ -1,11 +1,11 @@
-import Checkbox from "../ui/Checkbox";
 import FormRowVertical from "../ui/FormRowVertical";
+import RangeInput from "../ui/RangeInput";
 
 function Cars() {
   return (
     <div>
-      <FormRowVertical label='Email address' type='horizontal'>
-        <Checkbox />
+      <FormRowVertical type='horizontal'>
+        <RangeInput />
       </FormRowVertical>
     </div>
   );
