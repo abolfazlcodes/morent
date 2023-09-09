@@ -105,7 +105,7 @@ const Ad = ({ type, image, description, title }: AdProps) => {
           size='medium'
           variation={type === "adTypeA" ? "primary" : "secondary"}
         >
-          <Link to='/all-cars'>Rent Car</Link>
+          <Link to='/cars'>Rent Car</Link>
         </Button>
       </StyledAdWrapper>
 
