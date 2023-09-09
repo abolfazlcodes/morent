@@ -12,7 +12,7 @@ const StyledNavAction = styled.span`
   border-radius: 100%;
   color: var(--color-grey-500);
 
-  @media screen and (max-width: 730px) {
+  @media screen and (max-width: 400px) {
     display: none;
   }
 `;
@@ -36,6 +36,10 @@ const StyledBadge = styled.span`
   position: absolute;
   top: -20%;
   right: 0;
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 `;
 
 interface NavActionProps {

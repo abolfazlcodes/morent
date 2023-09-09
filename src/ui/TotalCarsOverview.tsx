@@ -9,6 +9,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 55%;
   margin-left: auto;
+
+  @media screen and (max-width: 730px) {
+    width: 100%;
+  }
 `;
 
 const TotalCarsSpan = styled.span`

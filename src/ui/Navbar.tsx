@@ -37,9 +37,9 @@ function Navbar() {
         <NavAction link='/bookmarks' badge totalBookmarks={bookmarks.length}>
           <HiHeart />
         </NavAction>
-        <NavAction link='/notifications'>
+        {/* <NavAction link='/notifications'>
           <HiBell />
-        </NavAction>
+        </NavAction> */}
         <NavAction link='/settings'>
           <HiCog6Tooth />
         </NavAction>
