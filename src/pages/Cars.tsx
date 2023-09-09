@@ -1,13 +1,21 @@
-import FormRowVertical from "../ui/FormRowVertical";
-import RangeInput from "../ui/RangeInput";
+import styled from "styled-components";
+import Filter from "../ui/Filter";
+
+const StyledWrapper = styled.div`
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 30rem 1fr;
+  gap: 1rem;
+`;
 
 function Cars() {
   return (
-    <div>
-      <FormRowVertical type='horizontal'>
-        <RangeInput />
-      </FormRowVertical>
-    </div>
+    <>
+      <StyledWrapper>
+        <Filter />
+        <div>cars</div>
+      </StyledWrapper>
+    </>
   );
 }
 

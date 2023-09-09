@@ -33,6 +33,7 @@ const StyledFormRow = styled.div<StyledFormRowType>`
 
 const Label = styled.label`
   font-weight: 500;
+  color: var(--color-grey-500);
 `;
 
 const Error = styled.span`
