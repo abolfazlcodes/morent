@@ -102,12 +102,14 @@ const Ad = ({ type, image, description, title }: AdProps) => {
           {title}
         </h2>
         <StyledAdDescription>{description}</StyledAdDescription>
-        <Button
-          size='medium'
-          variation={type === "adTypeA" ? "primary" : "secondary"}
-        >
-          <Link to='/cars'>Rent Car</Link>
-        </Button>
+        <Link to='/cars'>
+          <Button
+            size='medium'
+            variation={type === "adTypeA" ? "primary" : "secondary"}
+          >
+            Rent Car
+          </Button>
+        </Link>
       </StyledAdWrapper>
 
       <StyledAdImage src={image} alt='sample car' />

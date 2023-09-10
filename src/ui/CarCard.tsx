@@ -11,7 +11,7 @@ type StyledItemsProps = {
 };
 
 const StyledArticle = styled.article<StyledItemsProps>`
-  width: max-content;
+  width: 32rem;
   height: 36rem;
   background-color: #ffffff;
   padding: 1.5rem;
