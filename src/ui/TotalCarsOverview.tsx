@@ -21,7 +21,7 @@ const TotalCarsSpan = styled.span`
 `;
 
 interface TotalCarsOverviewPops {
-  numOfCars: number;
+  numOfCars: number | undefined;
 }
 
 function TotalCarsOverview({ numOfCars }: TotalCarsOverviewPops) {

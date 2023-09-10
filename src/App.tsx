@@ -23,6 +23,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 10 * 1000, // every 10 seconds it should be stale
+      // cacheTime: 10 * 1000,
     },
   },
 });

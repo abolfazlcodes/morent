@@ -44,7 +44,7 @@ const Error = styled.span`
 interface FormVerticalProps {
   label?: string;
   error?: string;
-  children?: React.ReactNode;
+  children?: React.ReactElement;
   type?: "vertical" | "horizontal";
 }
 
