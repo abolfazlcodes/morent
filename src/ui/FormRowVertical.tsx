@@ -1,14 +1,39 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledFormRow = styled.div`
+type StyledFormRowType = {
+  type: "vertical" | "horizontal";
+};
+
+const StyledFormRow = styled.div<StyledFormRowType>`
   display: flex;
-  flex-direction: column;
   gap: 0.8rem;
   padding: 1.2rem 0;
+
+  ${(props) =>
+    props.type === "vertical" &&
+    css`
+      flex-direction: column;
+    `}
+
+  ${(props) =>
+    props.type === "horizontal" &&
+    css`
+      align-items: center;
+
+      & label {
+        order: 1;
+        font-size: 1.5rem;
+      }
+
+      & span {
+        order: 2;
+      }
+    `}
 `;
 
 const Label = styled.label`
   font-weight: 500;
+  color: var(--color-grey-500);
 `;
 
 const Error = styled.span`
@@ -20,11 +45,21 @@ interface FormVerticalProps {
   label?: string;
   error?: string;
   children?: React.ReactNode;
+  type?: "vertical" | "horizontal";
 }
 
-function FormRowVertical({ label, error, children }: FormVerticalProps) {
+StyledFormRow.defaultProps = {
+  type: "vertical",
+};
+
+function FormRowVertical({
+  label,
+  error,
+  children,
+  type = "vertical",
+}: FormVerticalProps) {
   return (
-    <StyledFormRow>
+    <StyledFormRow type={type}>
       {label && <Label htmlFor={children?.props?.id}>{label}</Label>}
       {children}
       {error && <Error>{error}</Error>}
