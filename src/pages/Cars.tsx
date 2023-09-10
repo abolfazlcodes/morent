@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Filter from "../ui/Filter";
+import Operations from "../ui/Operations";
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -11,7 +11,7 @@ function Cars() {
   return (
     <>
       <StyledWrapper>
-        <Filter />
+        <Operations />
         <div>cars</div>
       </StyledWrapper>
     </>

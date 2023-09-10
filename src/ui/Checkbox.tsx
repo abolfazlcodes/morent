@@ -94,18 +94,18 @@ StyledCheckbox.defaultProps = {
 
 interface CheckboxProps {
   id: string;
+  onClick: (value: string) => void;
+  active: boolean;
 }
 
-function Checkbox({ id }: CheckboxProps) {
-  const [isChecked, setIsChecked] = useState(false);
-
+function Checkbox({ id, onClick, active }: CheckboxProps) {
   const handleCheck = () => {
-    setIsChecked(!isChecked);
+    onClick(id);
   };
 
   return (
     <StyledCheckboxWrapper onClick={handleCheck}>
-      <StyledCheckbox checked={isChecked} id={id} />
+      <StyledCheckbox checked={active} id={id} />
       <StyledSVG viewBox='0 0 21 18'>
         <symbol
           id='tick-path'

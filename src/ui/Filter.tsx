@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import Checkbox from "./Checkbox";
 import FormRowVertical from "./FormRowVertical";
-
-const StyledFilter = styled.aside`
-  background-color: var(--color-white);
-  padding: 1rem;
-`;
+import Checkbox from "./Checkbox";
+import { useSearchParams } from "react-router-dom";
 
 const StyledCategoryText = styled.span`
   font-size: 1.2rem;
@@ -14,50 +10,54 @@ const StyledCategoryText = styled.span`
   color: var(--color-grey-400);
 `;
 
-const Wrapper = styled.div`
+const StyledFilter = styled.div`
   margin-bottom: 2rem;
 `;
 
-function Filter() {
+interface FilterProps {
+  filterField: string;
+  options: { value: string; label: string }[];
+}
+
+function Filter({ filterField, options }: FilterProps) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentFilter = searchParams.get(filterField);
+
+  let isChecked: boolean;
+
+  const handleClick = (value: string) => {
+    isChecked = Boolean(currentFilter?.includes(value));
+
+    if (isChecked) {
+      const newFilterValue = currentFilter?.replace(value, "");
+      searchParams.set(filterField, newFilterValue!);
+      setSearchParams(searchParams);
+
+      // return as we do not want to add it again
+      return;
+    }
+
+    if (currentFilter && !isChecked) {
+      searchParams.set(filterField, `${currentFilter},${value}`);
+    } else {
+      searchParams.set(filterField, value);
+    }
+
+    setSearchParams(searchParams);
+  };
+
   return (
     <StyledFilter>
-      <Wrapper>
-        <StyledCategoryText>Type</StyledCategoryText>
-        <FormRowVertical type='horizontal' label='Sport'>
-          <Checkbox id='Sport' />
+      <StyledCategoryText>{filterField}</StyledCategoryText>
+      {options.map((item) => (
+        <FormRowVertical key={item.value} type='horizontal' label={item.label}>
+          <Checkbox
+            id={item.value}
+            onClick={handleClick}
+            active={Boolean(currentFilter?.includes(item.value))}
+          />
         </FormRowVertical>
-        <FormRowVertical type='horizontal' label='SUV'>
-          <Checkbox id='SUV' />
-        </FormRowVertical>
-        <FormRowVertical type='horizontal' label='MVP'>
-          <Checkbox id='MVP' />
-        </FormRowVertical>
-        <FormRowVertical type='horizontal' label='Sedan'>
-          <Checkbox id='Sedan' />
-        </FormRowVertical>
-        <FormRowVertical type='horizontal' label='Coupe'>
-          <Checkbox id='Coupe' />
-        </FormRowVertical>
-        <FormRowVertical type='horizontal' label='Hatchback'>
-          <Checkbox id='Hatchback' />
-        </FormRowVertical>
-      </Wrapper>
-
-      <Wrapper>
-        <StyledCategoryText>Capacity</StyledCategoryText>
-        <FormRowVertical type='horizontal' label='2 People'>
-          <Checkbox id='2 People' />
-        </FormRowVertical>
-        <FormRowVertical type='horizontal' label='4 People'>
-          <Checkbox id='4 People' />
-        </FormRowVertical>
-        <FormRowVertical type='horizontal' label='6 People'>
-          <Checkbox id='6 People' />
-        </FormRowVertical>
-        <FormRowVertical type='horizontal' label='8 People'>
-          <Checkbox id='8 People' />
-        </FormRowVertical>
-      </Wrapper>
+      ))}
     </StyledFilter>
   );
 }
