@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Operations from "../ui/Operations";
+import CarsWrapper from "../features/cars/CarsWrapper";
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -12,7 +13,8 @@ function Cars() {
     <>
       <StyledWrapper>
         <Operations />
-        <div>cars</div>
+
+        <CarsWrapper />
       </StyledWrapper>
     </>
   );
