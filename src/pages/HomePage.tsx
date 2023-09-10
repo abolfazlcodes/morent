@@ -1,7 +1,7 @@
 import Advertisement from "../ui/Advertisement";
 import Row from "../ui/Row";
 
-import CardsWrapper from "../ui/CardsWrapper";
+import HomePageCarsWrapper from "../ui/HomePageCarsWrapper";
 
 function HomePage() {
   return (
@@ -10,7 +10,7 @@ function HomePage() {
         <Advertisement />
       </Row>
 
-      <CardsWrapper />
+      <HomePageCarsWrapper />
     </>
   );
 }

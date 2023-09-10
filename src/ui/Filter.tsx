@@ -29,8 +29,8 @@ function Filter({ filterField, options }: FilterProps) {
     isChecked = Boolean(currentFilter?.includes(value));
 
     if (isChecked) {
-      const newFilterValue = currentFilter?.replace(value, "");
-      searchParams.set(filterField, newFilterValue!);
+      const newFilterValue = currentFilter?.replace(`${value}`, "") as string;
+      searchParams.set(filterField, newFilterValue);
       setSearchParams(searchParams);
 
       // return as we do not want to add it again
@@ -38,7 +38,7 @@ function Filter({ filterField, options }: FilterProps) {
     }
 
     if (currentFilter && !isChecked) {
-      searchParams.set(filterField, `${currentFilter},${value}`);
+      searchParams.set(filterField, `${currentFilter}-${value}`);
     } else {
       searchParams.set(filterField, value);
     }
