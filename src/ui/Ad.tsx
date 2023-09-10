@@ -11,6 +11,7 @@ const StyledAd = styled.article<StyledAdTypes>`
   width: 50%;
   height: 36rem;
   padding: 1.5rem;
+  margin: 2rem 2.5rem;
   border-radius: 1rem;
 
   ${(props) =>
@@ -105,7 +106,7 @@ const Ad = ({ type, image, description, title }: AdProps) => {
           size='medium'
           variation={type === "adTypeA" ? "primary" : "secondary"}
         >
-          <Link to='/all-cars'>Rent Car</Link>
+          <Link to='/cars'>Rent Car</Link>
         </Button>
       </StyledAdWrapper>
 

@@ -127,7 +127,7 @@ function CardsWrapper() {
       />
       <StyledWrapper>
         {fakeCarsData.map((carItem) => (
-          <CarCard key={carItem.id} carData={carItem} />
+          <CarCard key={carItem.id} carData={carItem} type='typeB' />
         ))}
       </StyledWrapper>
 

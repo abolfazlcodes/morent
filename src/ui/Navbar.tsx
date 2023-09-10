@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-import { HiHeart, HiCog6Tooth, HiBell } from "react-icons/hi2";
+import { HiHeart, HiCog6Tooth } from "react-icons/hi2";
 import Logo from "./Logo";
 import NavInput from "./NavInput";
 import Row from "./Row";
@@ -37,9 +37,9 @@ function Navbar() {
         <NavAction link='/bookmarks' badge totalBookmarks={bookmarks.length}>
           <HiHeart />
         </NavAction>
-        <NavAction link='/notifications'>
+        {/* <NavAction link='/notifications'>
           <HiBell />
-        </NavAction>
+        </NavAction> */}
         <NavAction link='/settings'>
           <HiCog6Tooth />
         </NavAction>
