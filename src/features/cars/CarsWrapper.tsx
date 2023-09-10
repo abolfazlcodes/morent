@@ -20,7 +20,7 @@ function CarsWrapper() {
 
   if (isLoading) return <Spinner />;
 
-  if (cars?.length < 1) return <Empty resource='cars' />;
+  if (cars && cars?.length < 1) return <Empty resource='cars' />;
 
   return (
     <StyledWrapper>
