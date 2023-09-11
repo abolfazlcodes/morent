@@ -21,7 +21,7 @@ function SwiperComponent({ children }: SwiperComponentProps) {
           slidesPerView: 4,
           spaceBetween: 30,
         },
-        820: {
+        850: {
           slidesPerView: 3,
         },
         550: {

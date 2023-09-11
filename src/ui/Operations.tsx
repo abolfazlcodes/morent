@@ -1,14 +1,41 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Filter from "./Filter";
 
-const StyledOperations = styled.aside`
+interface OperationsProps {
+  isOpen: boolean;
+}
+
+const StyledOperations = styled.aside<OperationsProps>`
   background-color: var(--color-white);
   padding: 1rem;
+  height: 100dvh;
+
+  @media screen and (max-width: 550px) {
+    position: absolute;
+    z-index: 10;
+    width: 0;
+    top: 0;
+    left: -30%;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+  }
+
+  ${(props) =>
+    props.isOpen &&
+    css`
+      @media screen and (max-width: 550px) {
+        width: 70%;
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+      }
+    `}
 `;
 
-function Operations() {
+function Operations({ isOpen }: OperationsProps) {
   return (
-    <StyledOperations>
+    <StyledOperations isOpen={isOpen}>
       <Filter
         filterField='Type'
         options={[

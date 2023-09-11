@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
-import { HiMagnifyingGlass } from "react-icons/hi2";
+import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from "react-icons/hi2";
+import { useSidebarOpen } from "../context/SidebarOpen";
+import { SidebarOpenContextType } from "../interfaces/contexts.interface";
 
 const StyledWrapper = styled.div`
   justify-self: center;
@@ -42,15 +44,38 @@ const StyledSearchIcon = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-right: 1px solid var(--color-grey-500);
+`;
+
+const StyledFilterIcon = styled.span`
+  display: none;
+
+  @media screen and (max-width: 550px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    font-size: 2rem;
+    color: var(--color-grey-500);
+    cursor: pointer;
+    border-left: 1px solid var(--color-grey-500);
+  }
 `;
 
 function NavInput() {
+  const { isOpen, setIsOpen } = useSidebarOpen() as SidebarOpenContextType;
+
   return (
     <StyledWrapper>
       <StyledSearchIcon>
         <HiMagnifyingGlass />
       </StyledSearchIcon>
+
       <StyledInput type='text' placeholder='Search car names...' />
+
+      <StyledFilterIcon onClick={() => setIsOpen(!isOpen)}>
+        <HiAdjustmentsHorizontal />
+      </StyledFilterIcon>
     </StyledWrapper>
   );
 }
