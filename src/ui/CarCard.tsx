@@ -32,8 +32,8 @@ const StyledArticle = styled.article<StyledItemsProps>`
       grid-template-rows: 1fr 3fr 1fr;
     `}
   
-  @media screen and (max-width: 550px) {
-    width: 90%;
+  @media screen and (max-width: 650px) {
+    width: 27rem;
   }
 `;
 

@@ -6,6 +6,7 @@ const StyledWrapper = styled.div`
   display: grid;
   grid-template-columns: 30rem 1fr;
   gap: 1rem;
+  height: 100dvh;
 `;
 
 function Cars() {

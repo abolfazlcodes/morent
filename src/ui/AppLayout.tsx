@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import Footer from "./Footer";
 
 const Main = styled.main`
-  max-width: 170rem;
+  /* max-width: 192rem; */
   margin: auto;
 `;
 

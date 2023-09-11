@@ -13,6 +13,15 @@ const StyledWrapper = styled.section`
   column-gap: 1rem;
   row-gap: 3rem;
   padding: 3rem 2rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::-ms-scrollbar {
+    display: none;
+  }
 `;
 
 function CarsWrapper() {

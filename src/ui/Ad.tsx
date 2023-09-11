@@ -38,7 +38,11 @@ const StyledAd = styled.article<StyledAdTypes>`
 
   @media screen and (max-width: 975px) {
     width: 100%;
-    height: 26rem;
+    height: max-content;
+  }
+
+  @media screen and (min-width: 1100) {
+    max-width: 80rem;
   }
 `;
 
@@ -61,8 +65,12 @@ const StyledAdImage = styled.img`
   right: 5%;
   width: 45rem;
 
+  @media screen and (max-width: 1330px) {
+    width: 50%;
+  }
+
   @media screen and (max-width: 975px) {
-    width: 40rem;
+    width: 40%;
   }
 
   @media screen and (max-width: 550px) {

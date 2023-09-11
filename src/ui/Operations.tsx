@@ -4,6 +4,7 @@ import Filter from "./Filter";
 const StyledOperations = styled.aside`
   background-color: var(--color-white);
   padding: 1rem;
+  height: 100dvh;
 `;
 
 function Operations() {
