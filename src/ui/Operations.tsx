@@ -18,6 +18,7 @@ const StyledOperations = styled.aside<OperationsProps>`
     left: -30%;
     visibility: hidden;
     opacity: 0;
+    transition: all 0.3s ease-in;
   }
 
   ${(props) =>

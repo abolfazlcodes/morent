@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import Operations from "../ui/Operations";
 import CarsWrapper from "../features/cars/CarsWrapper";
+import { useSidebarOpen } from "../context/SideBarOpen";
+import { SidebarOpenContextType } from "../interfaces/contexts.interface";
 
 interface OverlayProps {
   isOpen: boolean;
@@ -43,12 +45,14 @@ const StyledFiltersOverlay = styled.div<OverlayProps>`
 `;
 
 function Cars() {
+  const { isOpen } = useSidebarOpen() as SidebarOpenContextType;
+
   return (
     <>
       <StyledWrapper>
-        <StyledFiltersOverlay isOpen={false} />
+        <StyledFiltersOverlay isOpen={isOpen} />
 
-        <Operations isOpen={false} />
+        <Operations isOpen={isOpen} />
 
         <CarsWrapper />
       </StyledWrapper>
