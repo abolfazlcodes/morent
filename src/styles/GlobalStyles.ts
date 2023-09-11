@@ -71,6 +71,7 @@ const GlobalStyles = createGlobalStyle`
     --border-radius-md: 7px;
     --border-radius-lg: 9px;
 
+    --max-width: 192rem
     }
 
     *,

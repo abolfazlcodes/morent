@@ -7,6 +7,7 @@ import TotalCarsOverview from "./TotalCarsOverview";
 import SwiperComponent from "./SwiperComponent";
 import { useCars } from "../features/cars/useCars";
 import Spinner from "./Spinner";
+import Empty from "./Empty";
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -31,6 +32,9 @@ function HomePageCarsWrapper() {
 
       <SwiperComponent>
         {isLoading && <Spinner />}
+
+        {cars && cars?.length < 1 && <Empty resource='cars' />}
+
         {cars?.slice(6, 12).map((item) => (
           <SwiperSlide key={item.id}>
             <CarCard carData={item} />
@@ -51,6 +55,8 @@ function HomePageCarsWrapper() {
 
       {!isLoading && cars && (
         <>
+          {cars && cars?.length < 1 && <Empty resource='cars' />}
+
           <StyledWrapper>
             {cars?.slice(0, 8).map((carItem) => (
               <CarCard key={carItem.id} carData={carItem} type='typeB' />
