@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from "react-icons/hi2";
-import { useSidebarOpen } from "../context/SideBarOpen";
+import { useSidebarOpen } from "../context/SidebarOpen";
 import { SidebarOpenContextType } from "../interfaces/contexts.interface";
 
 const StyledWrapper = styled.div`

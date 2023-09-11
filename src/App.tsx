@@ -9,7 +9,7 @@ import Spinner from "./ui/Spinner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BookmarksProvider } from "./context/Bookmarks";
-import { SideBarOpenProvider } from "./context/SideBarOpen";
+import { SideBarOpenProvider } from "./context/SidebarOpen";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Settings = lazy(() => import("./pages/Settings"));

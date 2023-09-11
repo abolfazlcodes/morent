@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import Operations from "../ui/Operations";
 import CarsWrapper from "../features/cars/CarsWrapper";
-import { useSidebarOpen } from "../context/SideBarOpen";
+import { useSidebarOpen } from "../context/SidebarOpen";
 import { SidebarOpenContextType } from "../interfaces/contexts.interface";
 
 interface OverlayProps {
