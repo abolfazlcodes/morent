@@ -144,7 +144,7 @@ const StyledBgOverlay = styled.div`
   bottom: 0;
   width: 100%;
   height: 70%;
-  z-index: 10;
+  z-index: 5;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
 `;
 

@@ -7,7 +7,7 @@ import { CarProps } from "../../interfaces/cars.interface";
 
 const StyledWrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr));
   justify-items: center;
   grid-auto-flow: row;
   column-gap: 1rem;
