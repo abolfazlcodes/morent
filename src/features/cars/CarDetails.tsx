@@ -1,21 +1,13 @@
 import styled from "styled-components";
-import carImage from "../../assets/image 8.png";
 import ImagePreview from "../../ui/ImagePreview";
 import CardHeader from "../../ui/CardHeader";
 import BookmarkHeart from "../../ui/BookmarkHeart";
 import CardStats from "../../ui/CardStats";
 import CardFooter from "../../ui/CardFooter";
 
-const sampleCar = {
-  id: 1,
-  automatic: true,
-  capacity: 2,
-  category: "sport",
-  image: carImage,
-  name: "Nissan GT - R",
-  pricePerDay: 80,
-  tankCapacity: 70,
-};
+import { useCar } from "./useCar";
+import Spinner from "../../ui/Spinner";
+import Empty from "../../ui/Empty";
 
 const StyledCarDetails = styled.article`
   display: flex;
@@ -51,28 +43,34 @@ const StyledDetails = styled.div`
 `;
 
 function CarDetails() {
+  const { isLoading, carData } = useCar();
+
+  if (isLoading) return <Spinner />;
+
+  if (!carData) return <Empty resource='Car was not found' />;
+
   return (
     <StyledCarDetails>
-      <ImagePreview thumbnail={sampleCar.image} />
+      <ImagePreview thumbnail={carData.image} />
 
       <StyledDetails>
-        <CardHeader title={sampleCar.name} subtitle='rating + 2 Reviewers'>
-          <BookmarkHeart carData={sampleCar} />
+        <CardHeader title={carData.name} subtitle='rating + 2 Reviewers'>
+          <BookmarkHeart carData={carData} />
         </CardHeader>
 
         <CardStats
-          capacity={sampleCar.capacity}
-          category={sampleCar.category}
-          steering={sampleCar.automatic}
-          tankCapacity={sampleCar.tankCapacity}
+          capacity={carData.capacity}
+          category={carData.category}
+          steering={carData.automatic}
+          tankCapacity={carData.tankCapacity}
           description="NISMO has become the embodiment of Nissan's outstanding
               performance, inspired by the most unforgiving proving ground, the
               race track."
         />
 
         <CardFooter
-          id={sampleCar.id}
-          pricePerDay={sampleCar.pricePerDay}
+          id={carData.id}
+          pricePerDay={carData.pricePerDay}
           btnSize='medium'
         />
       </StyledDetails>

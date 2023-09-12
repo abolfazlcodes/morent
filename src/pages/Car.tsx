@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import CarDetails from "../features/cars/CarDetails";
 
 const StyledWrapper = styled.div`
   padding: 1rem;
@@ -15,12 +16,14 @@ const StyledWrapper = styled.div`
   }
 `;
 
-function CarDetails() {
+function SingleCar() {
   return (
     <>
-      <StyledWrapper></StyledWrapper>
+      <StyledWrapper>
+        <CarDetails />
+      </StyledWrapper>
     </>
   );
 }
 
-export default CarDetails;
+export default SingleCar;

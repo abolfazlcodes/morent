@@ -17,7 +17,7 @@ const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
 const Account = lazy(() => import("./pages/Account"));
 const Cars = lazy(() => import("./pages/Cars"));
-const CarDetails = lazy(() => import("./pages/CarDetails"));
+const SingleCar = lazy(() => import("./pages/Car"));
 
 // creating the react query
 const queryClient = new QueryClient({
@@ -43,7 +43,7 @@ function App() {
                 <Route element={<AppLayout />}>
                   <Route index element={<HomePage />} />
                   <Route path='/cars' element={<Cars />} />
-                  <Route path='/cars/:carId' element={<CarDetails />} />
+                  <Route path='/cars/:carId' element={<SingleCar />} />
                   <Route path='/settings' element={<Settings />} />
                   <Route path='/account' element={<Account />} />
                 </Route>
