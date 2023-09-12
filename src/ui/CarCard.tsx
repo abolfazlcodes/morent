@@ -1,10 +1,9 @@
-import Heading from "./Heading";
 import { GearBox, TankIcon, Users } from "../utils/helpers";
-import Button from "./Button";
 import { css, styled } from "styled-components";
-import { Link } from "react-router-dom";
 import { CarProps } from "../interfaces/cars.interface";
 import BookmarkHeart from "./BookmarkHeart";
+import CardHeader from "./CardHeader";
+import CardFooter from "./CardFooter";
 
 type StyledItemsProps = {
   type: "typeA" | "typeB";
@@ -35,19 +34,6 @@ const StyledArticle = styled.article<StyledItemsProps>`
   @media screen and (max-width: 650px) {
     width: 27rem;
   }
-`;
-
-const StyledCardHeader = styled.header`
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-`;
-
-const StyledCardCategory = styled.span`
-  color: #90a3bf;
-  font-size: 1.3rem;
-  text-transform: capitalize;
-  font-weight: 500;
 `;
 
 const StyledCardImageWrapper = styled.div`
@@ -101,24 +87,6 @@ const StyledCardOverviewDetail = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #90a3bf;
-`;
-
-const StyledCardFooter = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const StyledCardPrice = styled.span`
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a202c;
-`;
-
-const StyledCardPriceDay = styled.span`
-  font-size: 1.4rem;
-  font-weight: 700;
   color: #90a3bf;
 `;
 
@@ -223,32 +191,14 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
 
   return (
     <StyledArticle type={type}>
-      <StyledCardHeader>
-        <div>
-          <Heading as='h3' color='black'>
-            {name}
-          </Heading>
-          <StyledCardCategory>{category}</StyledCardCategory>
-        </div>
-
+      <CardHeader title={name} subtitle={category}>
         <BookmarkHeart carData={carData} />
-      </StyledCardHeader>
+      </CardHeader>
 
       {/*// ? rendering details based on their types */}
       {renderCarDetails()}
 
-      <StyledCardFooter>
-        <div>
-          <StyledCardPrice>${pricePerDay}.00/</StyledCardPrice>
-          <StyledCardPriceDay>day</StyledCardPriceDay>
-        </div>
-
-        <Link to={`/cars/${id}`}>
-          <Button size='small' variation='primary'>
-            Rent now
-          </Button>
-        </Link>
-      </StyledCardFooter>
+      <CardFooter id={id} pricePerDay={pricePerDay} />
     </StyledArticle>
   );
 };
