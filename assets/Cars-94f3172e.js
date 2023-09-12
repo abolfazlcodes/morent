@@ -1,4 +1,4 @@
-import{s as i,j as e,k as m,n as p,S as k,l as b}from"./index-443b1b67.js";import{F as g}from"./FormRowVertical-b13d1473.js";import{u as v,E as f,C as y}from"./Empty-f4e8951d.js";import"./supabase-ebb030f2.js";const w=i.div`
+import{s as i,j as e,k as m,n as p,S as k,l as b}from"./index-219f0eb1.js";import{F as g}from"./FormRowVertical-7e035c1b.js";import{u as v,C as f}from"./useCars-b24acfc5.js";import{E as y}from"./Empty-6b56ffb4.js";import"./supabase-9f795bfa.js";const w=i.div`
   display: block;
   width: 18px;
   height: 18px;
@@ -127,7 +127,7 @@ import{s as i,j as e,k as m,n as p,S as k,l as b}from"./index-443b1b67.js";impor
   &::-ms-scrollbar {
     display: none;
   }
-`;function V(){const{isLoading:a,cars:s}=v();return a?e.jsx(k,{}):s&&(s==null?void 0:s.length)<1?e.jsx(f,{resource:"cars"}):e.jsx(O,{children:s&&(s==null?void 0:s.map(o=>e.jsx(y,{type:"typeB",carData:o},o.id)))})}const B=i.div`
+`;function V(){const{isLoading:a,cars:s}=v();return a?e.jsx(k,{}):s&&(s==null?void 0:s.length)<1?e.jsx(y,{resource:"cars"}):e.jsx(O,{children:s&&(s==null?void 0:s.map(o=>e.jsx(f,{type:"typeB",carData:o},o.id)))})}const B=i.div`
   display: grid;
   grid-template-columns: 25rem 1fr;
   gap: 1rem;
@@ -157,4 +157,4 @@ import{s as i,j as e,k as m,n as p,S as k,l as b}from"./index-443b1b67.js";impor
     height: 100%;
     z-index: 10;
   }
-`;function N(){const{isOpen:a}=b();return e.jsx(e.Fragment,{children:e.jsxs(B,{children:[e.jsx($,{isOpen:a}),e.jsx(M,{isOpen:a}),e.jsx(V,{})]})})}export{N as default};
+`;function H(){const{isOpen:a}=b();return e.jsx(e.Fragment,{children:e.jsxs(B,{children:[e.jsx($,{isOpen:a}),e.jsx(M,{isOpen:a}),e.jsx(V,{})]})})}export{H as default};
