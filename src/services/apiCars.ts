@@ -7,3 +7,15 @@ export async function getCars() {
 
   return data;
 }
+
+export async function getCarData(id: string) {
+  const { data, error } = await supabase
+    .from("cars")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
