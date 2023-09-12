@@ -23,6 +23,9 @@ const StyledNavbar = styled.nav`
     padding: 2rem 1rem;
     row-gap: 2rem;
   }
+
+  max-width: 192rem;
+  margin: auto;
 `;
 
 function Navbar() {

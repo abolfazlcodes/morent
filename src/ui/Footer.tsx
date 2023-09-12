@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const StyledFooter = styled.footer`
   background-color: #fff;
   padding: 5rem;
+  max-width: 192rem;
+  margin: auto;
 `;
 
 const StyledFooterContent = styled.section`
