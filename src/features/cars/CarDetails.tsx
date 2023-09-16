@@ -9,6 +9,10 @@ import { useCar } from "./useCar";
 import Spinner from "../../ui/Spinner";
 import Empty from "../../ui/Empty";
 
+import imageOne from "../../assets/car 1 (1).jpg";
+import imageTwo from "../../assets/car 2 (1).jpg";
+import imageFour from "../../assets/car 4 (1).jpg";
+
 const StyledCarDetails = styled.article`
   display: flex;
   align-items: center;
@@ -27,14 +31,15 @@ const StyledDetails = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  gap: 2.8rem;
+  gap: 4.8rem;
   background: #fff;
   border-radius: 1rem;
-  height: 44rem;
+  height: 47rem;
 
   @media screen and (max-width: 990px) {
     width: 90%;
     height: max-content;
+    gap: 2.8rem;
   }
 
   @media screen and (max-width: 550px) {
@@ -51,7 +56,10 @@ function CarDetails() {
 
   return (
     <StyledCarDetails>
-      <ImagePreview thumbnail={carData.image} />
+      <ImagePreview
+        thumbnail={imageFour}
+        images={[imageOne, imageTwo, imageFour]}
+      />
 
       <StyledDetails>
         <CardHeader title={carData.name} subtitle='rating + 2 Reviewers'>

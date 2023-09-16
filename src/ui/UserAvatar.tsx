@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
 import img from "../assets/me.jpg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { HiUser } from "react-icons/hi2";
 
 const Wrapper = styled.div`
   width: 4rem;
@@ -13,7 +15,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const StyledAvatar = styled.img`
+const StyledAvatar = styled(LazyLoadImage)`
   width: 100%;
   height: 100%;
   border-radius: 100%;
@@ -24,7 +26,12 @@ const StyledAvatar = styled.img`
 function UserAvatar() {
   return (
     <Wrapper>
-      <StyledAvatar src={img} />
+      <StyledAvatar
+        src={img}
+        effect='blur'
+        alt='user image'
+        placeholder={<HiUser />}
+      />
     </Wrapper>
   );
 }
