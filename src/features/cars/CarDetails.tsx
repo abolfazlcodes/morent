@@ -9,10 +9,6 @@ import { useCar } from "./useCar";
 import Spinner from "../../ui/Spinner";
 import Empty from "../../ui/Empty";
 
-import imageOne from "../../assets/car 1 (1).jpg";
-import imageTwo from "../../assets/car 2 (1).jpg";
-import imageFour from "../../assets/car 4 (1).jpg";
-
 const StyledCarDetails = styled.article`
   display: flex;
   align-items: center;
@@ -56,10 +52,7 @@ function CarDetails() {
 
   return (
     <StyledCarDetails>
-      <ImagePreview
-        thumbnail={imageFour}
-        images={[imageOne, imageTwo, imageFour]}
-      />
+      <ImagePreview thumbnail={carData.images.at(0)} images={carData.images} />
 
       <StyledDetails>
         <CardHeader title={carData.name} subtitle='rating + 2 Reviewers'>

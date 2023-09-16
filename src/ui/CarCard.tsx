@@ -131,7 +131,7 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
     automatic,
     capacity,
     category,
-    image,
+    thumbnail,
     name,
     pricePerDay,
     tankCapacity,
@@ -143,7 +143,12 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
         <>
           <StyledCardImageWrapper>
             <StyledBgOverlay />
-            <StyledCardImage type={type} src={image} alt={name} effect='blur' />
+            <StyledCardImage
+              type={type}
+              src={thumbnail}
+              alt={name}
+              effect='blur'
+            />
           </StyledCardImageWrapper>
 
           <StyledCardOverview type={type}>
@@ -169,7 +174,12 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
         <StyledCardDetailsTypeB>
           <StyledCardImageWrapper>
             <StyledBgOverlay />
-            <StyledCardImage type={type} src={image} alt={name} effect='blur' />
+            <StyledCardImage
+              type={type}
+              src={thumbnail}
+              alt={name}
+              effect='blur'
+            />
           </StyledCardImageWrapper>
 
           <StyledCardOverview type={type}>
