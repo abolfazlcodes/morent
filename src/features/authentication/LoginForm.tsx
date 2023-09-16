@@ -9,6 +9,9 @@ import { LoginFormProps } from "../../interfaces/auth.interface";
 import { useLogin } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
 
+import Heading from "../../ui/Heading";
+import LoginActionsWrapper from "../../ui/LoginActionsWrapper";
+
 function LoginForm() {
   const {
     formState: { errors },
@@ -60,6 +63,12 @@ function LoginForm() {
           disabled={isLoading}
         />
       </FormRowVertical>
+
+      <Heading as='h6' color='grey'>
+        Login with
+      </Heading>
+      <LoginActionsWrapper />
+
       <FormRowVertical>
         <Button size='large' variation='primary' disabled={isLoading}>
           {!isLoading ? "Login" : <SpinnerMini />}

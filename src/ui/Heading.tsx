@@ -75,6 +75,17 @@ const Heading = styled.h1`
       color: var(--color-grey-400);
     `}
 
+    ${(props) =>
+    props.as === "h6" &&
+    props.color === "grey" &&
+    css`
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-grey-400);
+      text-align: center;
+      margin: 0.5rem 0;
+    `}
+
   line-height: 1.4;
 
   @media screen and (max-width: 675px) {
