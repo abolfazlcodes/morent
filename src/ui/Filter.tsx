@@ -23,27 +23,28 @@ function Filter({ filterField, options }: FilterProps) {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentFilter = searchParams.get(filterField);
 
-  let isChecked: boolean;
-
   const handleClick = (value: string) => {
-    isChecked = Boolean(currentFilter?.includes(value));
-
+    // Split the current filter values into an array
+    const currentValues = currentFilter ? currentFilter.split(",") : [];
+    // Check if the clicked value is in the current filter values
+    const isChecked = currentValues.includes(value);
     if (isChecked) {
-      const newFilterValue = currentFilter?.replace(`${value}`, "") as string;
-      searchParams.set(filterField, newFilterValue);
+      // If the value is already checked, remove it from the array
+      const updatedValues = currentValues.filter((v) => v !== value);
+      // Join the updated values back into a string
+      const updatedFilter = updatedValues.join(",");
+      // Set the updated filter as the new query parameter
+      searchParams.set(filterField, updatedFilter);
       setSearchParams(searchParams);
-
-      // return as we do not want to add it again
-      return;
-    }
-
-    if (currentFilter && !isChecked) {
-      searchParams.set(filterField, `${currentFilter}-${value}`);
     } else {
-      searchParams.set(filterField, value);
-    }
+      // If the value is not checked, add it to the array
+      currentValues.push(value);
+      // Join the updated values back into a string
+      const updatedFilter = currentValues.join(",");
 
-    setSearchParams(searchParams);
+      searchParams.set(filterField, updatedFilter);
+      setSearchParams(searchParams);
+    }
   };
 
   return (
