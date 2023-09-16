@@ -27,14 +27,15 @@ const StyledDetails = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  gap: 2.8rem;
+  gap: 4.8rem;
   background: #fff;
   border-radius: 1rem;
-  height: 44rem;
+  height: 47rem;
 
   @media screen and (max-width: 990px) {
     width: 90%;
     height: max-content;
+    gap: 2.8rem;
   }
 
   @media screen and (max-width: 550px) {
@@ -51,7 +52,7 @@ function CarDetails() {
 
   return (
     <StyledCarDetails>
-      <ImagePreview thumbnail={carData.image} />
+      <ImagePreview thumbnail={carData.images.at(0)} images={carData.images} />
 
       <StyledDetails>
         <CardHeader title={carData.name} subtitle='rating + 2 Reviewers'>
