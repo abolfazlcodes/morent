@@ -70,7 +70,7 @@ function CarDetails() {
         />
 
         <CardFooter
-          id={carData.id}
+          link={`/payment/${carData.id}`}
           pricePerDay={carData.pricePerDay}
           btnSize='medium'
         />

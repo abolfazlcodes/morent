@@ -213,7 +213,7 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
         {/*// ? rendering details based on their types */}
         {renderCarDetails()}
 
-        <CardFooter id={id} pricePerDay={pricePerDay} />
+        <CardFooter link={`/cars/${id}`} pricePerDay={pricePerDay} />
       </StyledArticle>
     </LazyLoadComponent>
   );
