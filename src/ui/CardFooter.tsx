@@ -21,12 +21,12 @@ const StyledCardPriceDay = styled.span`
 `;
 
 interface CardFooterProps {
-  id: number;
+  link: string;
   pricePerDay: number;
   btnSize?: "small" | "medium" | "large";
 }
 
-function CardFooter({ id, pricePerDay, btnSize = "small" }: CardFooterProps) {
+function CardFooter({ link, pricePerDay, btnSize = "small" }: CardFooterProps) {
   return (
     <StyledCardFooter>
       <div>
@@ -34,7 +34,7 @@ function CardFooter({ id, pricePerDay, btnSize = "small" }: CardFooterProps) {
         <StyledCardPriceDay>day</StyledCardPriceDay>
       </div>
 
-      <Link to={`/cars/${id}`}>
+      <Link to={link}>
         <Button size={btnSize} variation='primary'>
           Rent now
         </Button>
