@@ -51,7 +51,6 @@ function Cars() {
     <>
       <StyledWrapper>
         <StyledFiltersOverlay isOpen={isOpen} />
-
         <Operations isOpen={isOpen} />
 
         <CarsWrapper />
