@@ -1,4 +1,4 @@
-import{s as R,n as pe,j as P,L as Me,B as Oe,r as z,R as L,H as Xe,S as me,a as Ye}from"./index-219f0eb1.js";import{u as qe,C as he}from"./useCars-b24acfc5.js";import{L as Ke}from"./LinkButton-b40eb665.js";import{E as ge}from"./Empty-6b56ffb4.js";import"./supabase-9f795bfa.js";const Ie=R.article`
+import{s as R,n as pe,j as P,L as Me,B as Oe,r as z,R as L,H as Xe,S as me,a as Ye}from"./index-d4e3d225.js";import{u as qe,C as he}from"./useCars-add19c3e.js";import{L as Ke}from"./LinkButton-f63718f4.js";import{E as ge}from"./Empty-8aca16d9.js";import"./supabase-ba769cbe.js";const Ie=R.article`
   position: relative;
   width: 50%;
   height: 36rem;
