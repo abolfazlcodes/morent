@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 interface LoginActionProps {
   children: React.ReactNode;
   color: string;
+  onclick: () => void;
 }
 
 type StylesLoginProps = {
@@ -34,8 +35,12 @@ const StyledSpan = styled.button<StylesLoginProps>`
   }
 `;
 
-function LoginAction({ children, color }: LoginActionProps) {
-  return <StyledSpan color={color}>{children}</StyledSpan>;
+function LoginAction({ children, color, onclick }: LoginActionProps) {
+  return (
+    <StyledSpan onClick={onclick} color={color}>
+      {children}
+    </StyledSpan>
+  );
 }
 
 export default LoginAction;

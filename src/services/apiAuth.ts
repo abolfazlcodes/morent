@@ -36,6 +36,16 @@ export async function login({ email, password }: LoginFormProps) {
   return data;
 }
 
+export async function loginWithGithub() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "github",
+  });
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
 export async function getCurrentUser() {
   const { data: session } = await supabase.auth.getSession();
   if (!session) return null;

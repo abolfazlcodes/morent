@@ -1,5 +1,3 @@
-import { AiOutlineGithub } from "react-icons/ai";
-import LoginAction from "./LoginAction";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -9,20 +7,8 @@ const Wrapper = styled.div`
   justify-content: space-evenly;
 `;
 
-function LoginActionsWrapper() {
-  return (
-    <Wrapper>
-      {/* <LoginAction color='#54A6FF' disabled={true}>
-        <AiOutlineTwitter />
-      </LoginAction> */}
-      <LoginAction color='#1A202C'>
-        <AiOutlineGithub />
-      </LoginAction>
-      {/* <LoginAction color='#3563E9'>
-        <AiFillLinkedin />
-      </LoginAction> */}
-    </Wrapper>
-  );
+function LoginActionsWrapper({ children }: { children: React.ReactNode }) {
+  return <Wrapper>{children}</Wrapper>;
 }
 
 export default LoginActionsWrapper;

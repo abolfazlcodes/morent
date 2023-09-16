@@ -1,7 +1,6 @@
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
-// import SpinnerMini from "../../ui/SpinnerMini";
 import Button from "../../ui/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect } from "react";
@@ -11,6 +10,9 @@ import SpinnerMini from "../../ui/SpinnerMini";
 
 import Heading from "../../ui/Heading";
 import LoginActionsWrapper from "../../ui/LoginActionsWrapper";
+import { useLoginGithub } from "./useLoginGithub";
+import LoginAction from "../../ui/LoginAction";
+import { AiOutlineGithub } from "react-icons/ai";
 
 function LoginForm() {
   const {
@@ -21,6 +23,7 @@ function LoginForm() {
     setFocus,
   } = useForm<LoginFormProps>();
   const { isLoading, login } = useLogin();
+  const { isLoading: isLoadingLoginGithub, loginWithGithub } = useLoginGithub();
 
   const onSubmit: SubmitHandler<LoginFormProps> = (data) => {
     login(data);
@@ -48,7 +51,7 @@ function LoginForm() {
                 "Incorrect email format. Please enter a valid email address",
             },
           })}
-          disabled={isLoading}
+          disabled={isLoading || isLoadingLoginGithub}
         />
       </FormRowVertical>
       <FormRowVertical label='Password' error={errors.password?.message}>
@@ -60,18 +63,26 @@ function LoginForm() {
           {...register("password", {
             required: "Please enter your password",
           })}
-          disabled={isLoading}
+          disabled={isLoading || isLoadingLoginGithub}
         />
       </FormRowVertical>
 
       <Heading as='h6' color='grey'>
         Login with
       </Heading>
-      <LoginActionsWrapper />
+      <LoginActionsWrapper>
+        {isLoadingLoginGithub && <SpinnerMini />}
+
+        {!isLoadingLoginGithub && (
+          <LoginAction color='#1A202C' onclick={loginWithGithub}>
+            <AiOutlineGithub />
+          </LoginAction>
+        )}
+      </LoginActionsWrapper>
 
       <FormRowVertical>
         <Button size='large' variation='primary' disabled={isLoading}>
-          {!isLoading ? "Login" : <SpinnerMini />}
+          {!isLoading || !isLoadingLoginGithub ? "Login" : <SpinnerMini />}
         </Button>
       </FormRowVertical>
     </Form>
