@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useUser } from "../features/authentication/useUser";
 import Spinner from "./Spinner";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const FullPage = styled.div`
@@ -12,7 +12,7 @@ const FullPage = styled.div`
   justify-content: center;
 `;
 
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
+function ProtectedRoute() {
   const navigate = useNavigate();
 
   // step 1: check to see if we already have an authenticated user
@@ -32,7 +32,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
     );
 
   // step 4: if the user is authenticated, render the pages
-  if (isAuthenticated) return children;
+  if (isAuthenticated) return <Outlet />;
 }
 
 export default ProtectedRoute;

@@ -45,30 +45,14 @@ function App() {
                   <Route index element={<HomePage />} />
                   <Route path='/cars' element={<Cars />} />
                   <Route path='/cars/:carId' element={<SingleCar />} />
-                  <Route
-                    path='/settings'
-                    element={
-                      <ProtectedRoute>
-                        <Settings />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route
-                    path='/account'
-                    element={
-                      <ProtectedRoute>
-                        <Account />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route
-                    path='/payment/:paymentId'
-                    element={
-                      <ProtectedRoute>
-                        <span>payment page</span>
-                      </ProtectedRoute>
-                    }
-                  />
+                  <Route element={<ProtectedRoute />}>
+                    <Route path='/settings' element={<Settings />} />
+                    <Route path='/account' element={<Account />} />
+                    <Route
+                      path='/payment/:paymentId'
+                      element={<span>payment page</span>}
+                    />
+                  </Route>
                 </Route>
 
                 <Route path='/signup' element={<Signup />} />
