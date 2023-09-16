@@ -6,5 +6,6 @@ export interface CarProps {
   automatic: boolean;
   tankCapacity: number;
   category: string;
-  image: string;
+  thumbnail: string;
+  images: string[];
 }

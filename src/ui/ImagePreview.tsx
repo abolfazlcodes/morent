@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 
 const StyledImages = styled.div`
@@ -5,32 +7,15 @@ const StyledImages = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   border-radius: 1rem;
 
   img {
     width: 100%;
-    height: 32rem;
+    height: 33rem;
     object-fit: cover;
     object-position: center;
     border-radius: 1rem;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: space-between;
-
-    span {
-      display: inline-flex;
-      width: 100%;
-      height: 10rem;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border-radius: 1rem;
-    }
   }
 
   @media screen and (max-width: 990px) {
@@ -41,7 +26,7 @@ const StyledImages = styled.div`
     }
 
     div {
-      span {
+      img {
         height: 12rem;
       }
     }
@@ -52,21 +37,72 @@ const StyledImages = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+
+  img {
+    width: 22rem;
+    object-fit: cover;
+    object-position: center;
+    height: 13rem;
+
+    transition: all 0.1s ease-in;
+  }
+
+  @media screen and (max-width: 990px) {
+    img {
+      height: 12rem;
+      width: 100%;
+    }
+  }
+`;
+
+const StyledImageItem = styled(LazyLoadImage)`
+  cursor: pointer;
+  border-radius: 1rem;
+
+  &:hover {
+    outline: 2px solid var(--color-blue-600);
+    outline-offset: 3px;
+  }
+`;
+
 interface ImagePreviewProps {
-  thumbnail: string;
+  thumbnail?: string;
   images?: string[];
 }
 
-function ImagePreview({ thumbnail }: ImagePreviewProps) {
+const activeImageStyle = {
+  outline: "2px solid #3563E9",
+  outlineOffset: "3px",
+};
+
+function ImagePreview({ thumbnail, images }: ImagePreviewProps) {
+  const [previewImage, setPreviewImage] = useState<string | undefined>(
+    thumbnail
+  );
+
+  function handleChangeImagePreview(image: string) {
+    setPreviewImage(image);
+  }
+
   return (
     <StyledImages>
-      <img src={thumbnail} />
+      <LazyLoadImage src={previewImage} effect='blur' />
 
-      <div>
-        <span>other images</span>
-        <span>other images</span>
-        <span>other images</span>
-      </div>
+      <Wrapper>
+        {images?.map((image) => (
+          <StyledImageItem
+            src={image}
+            onClick={() => handleChangeImagePreview(image)}
+            style={image === previewImage ? activeImageStyle : {}}
+            effect='blur'
+          />
+        ))}
+      </Wrapper>
     </StyledImages>
   );
 }

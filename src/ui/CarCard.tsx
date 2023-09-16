@@ -4,6 +4,10 @@ import { CarProps } from "../interfaces/cars.interface";
 import BookmarkHeart from "./BookmarkHeart";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
+import {
+  LazyLoadComponent,
+  LazyLoadImage,
+} from "react-lazy-load-image-component";
 
 type StyledItemsProps = {
   type: "typeA" | "typeB";
@@ -43,7 +47,7 @@ const StyledCardImageWrapper = styled.div`
   position: relative;
 `;
 
-const StyledCardImage = styled.img<StyledItemsProps>`
+const StyledCardImage = styled(LazyLoadImage)<StyledItemsProps>`
   ${(props) =>
     props.type === "typeA" &&
     css`
@@ -127,7 +131,7 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
     automatic,
     capacity,
     category,
-    image,
+    thumbnail,
     name,
     pricePerDay,
     tankCapacity,
@@ -139,7 +143,12 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
         <>
           <StyledCardImageWrapper>
             <StyledBgOverlay />
-            <StyledCardImage type={type} src={image} alt={name} />
+            <StyledCardImage
+              type={type}
+              src={thumbnail}
+              alt={name}
+              effect='blur'
+            />
           </StyledCardImageWrapper>
 
           <StyledCardOverview type={type}>
@@ -165,7 +174,12 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
         <StyledCardDetailsTypeB>
           <StyledCardImageWrapper>
             <StyledBgOverlay />
-            <StyledCardImage type={type} src={image} alt={name} />
+            <StyledCardImage
+              type={type}
+              src={thumbnail}
+              alt={name}
+              effect='blur'
+            />
           </StyledCardImageWrapper>
 
           <StyledCardOverview type={type}>
@@ -190,16 +204,18 @@ const CarCard = ({ type = "typeA", carData }: CarCardProps) => {
   };
 
   return (
-    <StyledArticle type={type}>
-      <CardHeader title={name} subtitle={category}>
-        <BookmarkHeart carData={carData} />
-      </CardHeader>
+    <LazyLoadComponent visibleByDefault={false}>
+      <StyledArticle type={type}>
+        <CardHeader title={name} subtitle={category}>
+          <BookmarkHeart carData={carData} />
+        </CardHeader>
 
-      {/*// ? rendering details based on their types */}
-      {renderCarDetails()}
+        {/*// ? rendering details based on their types */}
+        {renderCarDetails()}
 
-      <CardFooter id={id} pricePerDay={pricePerDay} />
-    </StyledArticle>
+        <CardFooter id={id} pricePerDay={pricePerDay} />
+      </StyledArticle>
+    </LazyLoadComponent>
   );
 };
 
