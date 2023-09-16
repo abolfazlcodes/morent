@@ -1,10 +1,12 @@
+import { CarProps } from "../interfaces/cars.interface";
+
 type fieldValue = "category" | "capacity";
 
-export function filterCarsHandler<T>(
-  cars: T[] | undefined,
+export function filterCarsHandler(
+  cars: CarProps[] | undefined,
   categoriesToFilter: { field: fieldValue; values: string[] } | undefined
-): T[] {
-  let filtered: T[] = [];
+): CarProps[] {
+  let filtered: CarProps[] = [];
 
   if (categoriesToFilter && cars) {
     filtered = cars?.filter((carItem) =>
