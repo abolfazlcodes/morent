@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BookmarksProvider } from "./context/Bookmarks";
 import { SideBarOpenProvider } from "./context/SidebarOpen";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Settings = lazy(() => import("./pages/Settings"));
@@ -44,8 +45,30 @@ function App() {
                   <Route index element={<HomePage />} />
                   <Route path='/cars' element={<Cars />} />
                   <Route path='/cars/:carId' element={<SingleCar />} />
-                  <Route path='/settings' element={<Settings />} />
-                  <Route path='/account' element={<Account />} />
+                  <Route
+                    path='/settings'
+                    element={
+                      <ProtectedRoute>
+                        <Settings />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path='/account'
+                    element={
+                      <ProtectedRoute>
+                        <Account />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path='/payment/:paymentId'
+                    element={
+                      <ProtectedRoute>
+                        <span>payment page</span>
+                      </ProtectedRoute>
+                    }
+                  />
                 </Route>
 
                 <Route path='/signup' element={<Signup />} />
