@@ -42,6 +42,10 @@ const StyledBadge = styled.span`
   }
 `;
 
+const StyledWrapper = styled.div`
+  position: relative;
+`;
+
 interface NavActionProps {
   children: ReactNode;
   link: string;
@@ -51,10 +55,12 @@ interface NavActionProps {
 
 function NavAction({ children, link, badge, totalBookmarks }: NavActionProps) {
   return (
-    <StyledNavLink to={link}>
+    // <StyledNavLink to={link}>
+    <StyledWrapper>
       <StyledNavAction>{children}</StyledNavAction>
       {badge && <StyledBadge>{totalBookmarks}</StyledBadge>}
-    </StyledNavLink>
+    </StyledWrapper>
+    // </StyledNavLink>
   );
 }
 

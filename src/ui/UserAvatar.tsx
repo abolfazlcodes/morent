@@ -27,14 +27,14 @@ const StyledAvatar = styled(LazyLoadImage)`
 function UserAvatar() {
   return (
     <Wrapper>
-      <Link to='/account'>
-        <StyledAvatar
-          src={img}
-          effect='blur'
-          alt='user image'
-          placeholder={<HiUser />}
-        />
-      </Link>
+      {/* <Link to='/account'> */}
+      <StyledAvatar
+        src={img}
+        effect='blur'
+        alt='user image'
+        placeholder={<HiUser />}
+      />
+      {/* </Link> */}
     </Wrapper>
   );
 }
