@@ -9,6 +9,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
 
   padding: 0 2rem 2em;
+  margin-top: 2rem;
 
   @media screen and (max-width: 550px) {
     padding: 1rem 0;

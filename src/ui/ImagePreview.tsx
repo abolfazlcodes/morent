@@ -22,18 +22,29 @@ const StyledImages = styled.div`
     width: 90%;
 
     img {
-      height: 30rem;
+      height: 34rem;
     }
 
     div {
+      padding: 0 1rem;
+
       img {
         height: 12rem;
+        width: 22rem;
       }
     }
   }
 
   @media screen and (max-width: 550px) {
     width: 100%;
+
+    div {
+      flex-wrap: wrap;
+
+      img {
+        max-width: 100%;
+      }
+    }
   }
 `;
 
