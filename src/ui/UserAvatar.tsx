@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import img from "../assets/me.jpg";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { HiUser } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   width: 4rem;

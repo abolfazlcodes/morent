@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const StyledNavAction = styled.span`
@@ -17,9 +17,9 @@ const StyledNavAction = styled.span`
   }
 `;
 
-const StyledNavLink = styled(Link)`
-  position: relative;
-`;
+// const StyledNavLink = styled(Link)`
+//   position: relative;
+// `;
 
 const StyledBadge = styled.span`
   display: flex;
@@ -53,7 +53,7 @@ interface NavActionProps {
   totalBookmarks?: number;
 }
 
-function NavAction({ children, link, badge, totalBookmarks }: NavActionProps) {
+function NavAction({ children, badge, totalBookmarks }: NavActionProps) {
   return (
     // <StyledNavLink to={link}>
     <StyledWrapper>
