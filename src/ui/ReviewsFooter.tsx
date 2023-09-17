@@ -7,10 +7,14 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-function ReviewsFooter() {
+interface ReviewsFooterProps {
+  onClick: (num: number) => void;
+}
+
+function ReviewsFooter({ onClick }: ReviewsFooterProps) {
   return (
     <Wrapper>
-      <ActionButton>Show more</ActionButton>
+      <ActionButton onClick={() => onClick(5)}>Show more</ActionButton>
     </Wrapper>
   );
 }

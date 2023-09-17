@@ -21,13 +21,17 @@ const StyledTotalReviews = styled.span`
   border-radius: 0.5rem;
 `;
 
-function ReviewsHeader() {
+interface ReviewsHeaderProps {
+  totalReviews: number;
+}
+
+function ReviewsHeader({ totalReviews }: ReviewsHeaderProps) {
   return (
     <StyledHeader>
       <Heading as='h4' color='black'>
         Reviews
       </Heading>
-      <StyledTotalReviews>13</StyledTotalReviews>
+      <StyledTotalReviews>{totalReviews}</StyledTotalReviews>
     </StyledHeader>
   );
 }

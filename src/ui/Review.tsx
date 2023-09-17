@@ -1,7 +1,9 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import user1 from "../assets/user 1.png";
+import user2 from "../assets/user 2.png";
 import styled from "styled-components";
 import { ReviewProps } from "../interfaces/cars.interface";
+import { formatDateHandler } from "../utils/dateHelper";
 
 const StyledArticle = styled.article`
   margin: 2rem 0;
@@ -76,34 +78,30 @@ const StyledReviewDescription = styled.p`
 `;
 
 interface ReviewComponentProps {
-  review?: ReviewProps;
+  review: ReviewProps;
 }
 
 function Review({ review }: ReviewComponentProps) {
-  //   const { comment, date, userImage, userName, userRole } = review;
+  const { id, comment, date, userName, userRole } = review;
+  const userImage = id % 2 === 0 ? user2 : user1;
 
   return (
     <StyledArticle>
       <StyledReviewHeader>
         <StyledUserHeaderWrapper>
-          <LazyLoadImage src={user1} alt='' />
+          <LazyLoadImage src={userImage} alt={userName} />
           <div>
-            <StyledUserName>Alex Stanton</StyledUserName>
-            <StyledUserRole>CEO at Bukalapak</StyledUserRole>
+            <StyledUserName>{userName}</StyledUserName>
+            <StyledUserRole>{userRole}</StyledUserRole>
           </div>
         </StyledUserHeaderWrapper>
         <StyledDateWrapper>
-          <StyledDate>21 July 2023</StyledDate>
+          <StyledDate>{formatDateHandler(date)}</StyledDate>
           {/* TODO: developing a rating start component */}
           {/* <span>stars</span> */}
         </StyledDateWrapper>
       </StyledReviewHeader>
-      <StyledReviewDescription>
-        We are very happy with the service from the MORENT App. Morent has a low
-        price and also a large variety of cars with good and comfortable
-        facilities. In addition, the service provided by the officers is also
-        very friendly and very polite.
-      </StyledReviewDescription>
+      <StyledReviewDescription>{comment}</StyledReviewDescription>
     </StyledArticle>
   );
 }

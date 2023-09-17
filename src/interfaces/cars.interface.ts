@@ -17,4 +17,5 @@ export interface ReviewProps {
   userRole: string;
   date: string;
   comment: string;
+  id: number;
 }

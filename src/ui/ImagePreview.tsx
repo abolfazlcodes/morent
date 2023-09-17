@@ -108,6 +108,7 @@ function ImagePreview({ thumbnail, images }: ImagePreviewProps) {
         {images?.map((image) => (
           <StyledImageItem
             src={image}
+            key={image}
             onClick={() => handleChangeImagePreview(image)}
             style={image === previewImage ? activeImageStyle : {}}
             effect='blur'
