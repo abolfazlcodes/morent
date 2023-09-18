@@ -27,7 +27,7 @@ const StyledPrice = styled.span`
 
 interface PaymentCardRowProps {
   title: string;
-  price: string;
+  price: string | number;
 }
 
 function PaymentCardRow({ price, title }: PaymentCardRowProps) {

@@ -15,6 +15,7 @@ import PaymentCardSummary from "./PaymentCardSummary";
 import { useCar } from "../cars/useCar";
 import Spinner from "../../ui/Spinner";
 import Empty from "../../ui/Empty";
+import { DISCOUNT_CODE, DISCOUNT_PERCENT } from "../../constants";
 
 const StyledStep = styled.article`
   margin-bottom: 2rem;
@@ -35,19 +36,19 @@ const PaymentCard = styled.article`
   }
 `;
 
-const DISCOUNT_CODE = "EFx34AG";
-const DISCOUNT_PERCENT = 22;
-
 function AllPaymentSteps() {
   const { isLoading, carData } = useCar();
   const [discount, setDiscount] = useState(0);
 
   const handleDiscount = (code: string) => {
-    if (!code) return;
+    if (!code) toast.error("Please enter a code");
 
-    if (code === DISCOUNT_CODE && carData?.pricePerDay) {
+    if (code !== "" && code !== DISCOUNT_CODE) toast.error("Invalid code");
+
+    if (code !== "" && code === DISCOUNT_CODE && carData?.pricePerDay) {
       const discount = (DISCOUNT_PERCENT * carData?.pricePerDay) / 100;
       setDiscount(discount);
+      toast.success("Code applied successfully");
     }
   };
 
@@ -81,14 +82,13 @@ function AllPaymentSteps() {
       </PaymentForm>
 
       <PaymentCard>
-        <PaymentCardHeader />
-
+        <PaymentCardHeader name={carData.name} image={carData.thumbnail} />
         <LineSeparator />
 
-        <PaymentCardRow title='subtotal' price='80.00' />
+        <PaymentCardRow title='subtotal' price={carData.pricePerDay} />
         <PaymentCardRow title='Tax' price='0' />
 
-        <DiscountBox handleDiscount={handleDiscount} />
+        {!discount && <DiscountBox handleDiscount={handleDiscount} />}
 
         <PaymentCardSummary
           totalPrice={carData?.pricePerDay}

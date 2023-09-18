@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Review from "../../ui/Review";
 import ReviewsFooter from "../../ui/ReviewsFooter";
 import ReviewsHeader from "../../ui/ReviewsHeader";
-import { reviewsData } from "../../constants/reviews";
+import { reviewsData } from "../../constants";
 import { ReviewProps } from "../../interfaces/cars.interface";
 
 const StyledSection = styled.section`

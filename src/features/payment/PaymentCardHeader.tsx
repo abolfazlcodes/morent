@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import image from "../../assets/ad bg 2.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Heading from "../../ui/Heading";
 
@@ -37,7 +36,12 @@ const StyledImage = styled(LazyLoadImage)`
   width: 100%;
 `;
 
-function PaymentCardHeader() {
+interface PaymentHeaderProps {
+  name: string;
+  image: string;
+}
+
+function PaymentCardHeader({ image, name }: PaymentHeaderProps) {
   return (
     <>
       <header>
@@ -55,7 +59,7 @@ function PaymentCardHeader() {
           <StyledImage src={image} alt='' effect='blur' />
         </StyledImageWrapper>
         <Heading as='h3' color='black'>
-          Nissan GT - R
+          {name}
         </Heading>
       </StyledContainer>
     </>
