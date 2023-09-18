@@ -1,10 +1,11 @@
+import { PaymentStepsProps } from "../../interfaces";
 import FormGrid from "../../ui/FormGrid";
 import FormRowVertical from "../../ui/FormRowVertical";
 import Heading from "../../ui/Heading";
 import Input from "../../ui/Input";
 import PaymentFormHeader from "./PaymentFormHeader";
 
-function RentalInfoStep() {
+function RentalInfoStep({ handleChange }: PaymentStepsProps) {
   return (
     <>
       <PaymentFormHeader
@@ -26,6 +27,8 @@ function RentalInfoStep() {
             id='pickupLocation'
             autoComplete='city'
             placeholder='City name'
+            name='pickupLocation'
+            onChange={(e) => handleChange(e)}
           />
         </FormRowVertical>
         <FormRowVertical label='Date'>
@@ -34,14 +37,18 @@ function RentalInfoStep() {
             id='pickupDate'
             autoComplete='date'
             placeholder='Select your date'
+            name='pickupDate'
+            onChange={(e) => handleChange(e)}
           />
         </FormRowVertical>
         <FormRowVertical label='Time'>
           <Input
             type='time'
             id='pickupTime'
-            autoComplete='address'
+            autoComplete='time'
             placeholder='Select your time'
+            name='pickupTime'
+            onChange={(e) => handleChange(e)}
           />
         </FormRowVertical>
       </FormGrid>
@@ -59,22 +66,28 @@ function RentalInfoStep() {
             id='dropOffLocation'
             autoComplete='city'
             placeholder='City name'
+            name='dropOffLocation'
+            onChange={(e) => handleChange(e)}
           />
         </FormRowVertical>
         <FormRowVertical label='Date'>
           <Input
             type='date'
-            id='pickupDate'
+            id='dropOffDate'
             autoComplete='date'
             placeholder='Select your date'
+            name='dropOffDate'
+            onChange={(e) => handleChange(e)}
           />
         </FormRowVertical>
         <FormRowVertical label='Time'>
           <Input
             type='time'
-            id='pickupTime'
-            autoComplete='address'
+            id='dropOffTime'
+            autoComplete='time'
             placeholder='Select your time'
+            name='dropOffTime'
+            onChange={(e) => handleChange(e)}
           />
         </FormRowVertical>
       </FormGrid>

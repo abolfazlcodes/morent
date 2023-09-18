@@ -39,6 +39,41 @@ const PaymentCard = styled.article`
 function AllPaymentSteps() {
   const { isLoading, carData } = useCar();
   const [discount, setDiscount] = useState(0);
+  const [paymentInformation, setPaymentInformation] = useState<{
+    [x: string]: string | boolean;
+  }>({
+    name: "",
+    phoneNumber: "",
+    address: "",
+    city: "",
+    pickupLocation: "",
+    pickupDate: "",
+    pickupTime: "",
+    dropOffLocation: "",
+    dropOffDate: "",
+    dropOffTime: "",
+    newsletter: false,
+    policies: false,
+  });
+
+  const paymentFormChangeHandler = (e: Event) => {
+    const { target } = e;
+
+    const isCheckbox =
+      (target as HTMLInputElement).name !== "newsletter" &&
+      (target as HTMLInputElement).name !== "policies";
+
+    if (target) {
+      const newObject = {
+        ...paymentInformation,
+        [(target as HTMLInputElement).name]: isCheckbox
+          ? (target as HTMLInputElement).value
+          : (target as HTMLInputElement).checked,
+      };
+
+      setPaymentInformation(newObject);
+    }
+  };
 
   const handleDiscount = (code: string) => {
     if (!code) toast.error("Please enter a code");
@@ -65,15 +100,15 @@ function AllPaymentSteps() {
     <>
       <PaymentForm>
         <StyledStep>
-          <BillingInfoStep />
+          <BillingInfoStep handleChange={paymentFormChangeHandler} />
         </StyledStep>
 
         <StyledStep>
-          <RentalInfoStep />
+          <RentalInfoStep handleChange={paymentFormChangeHandler} />
         </StyledStep>
 
         <StyledStep>
-          <ConfirmationStep />
+          <ConfirmationStep handleChange={paymentFormChangeHandler} />
         </StyledStep>
 
         <Button size='medium' variation='primary'>
