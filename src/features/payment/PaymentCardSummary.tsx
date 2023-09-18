@@ -27,14 +27,25 @@ const TotalPrice = styled.span`
   }
 `;
 
-function PaymentCardSummary() {
+interface SummaryProps {
+  totalPrice: number | undefined;
+  discount?: number | undefined;
+}
+
+function PaymentCardSummary({ totalPrice, discount }: SummaryProps) {
   return (
     <Wrapper>
       <div>
         <Heading as='h2'>Total Rental Price</Heading>
-        <Subtitle>Overall price and includes rental discount</Subtitle>
+        <Subtitle>
+          {discount
+            ? `Overall price (${totalPrice}.00) and includes rental discount (${discount})`
+            : `Overall price (${totalPrice}.00)`}
+        </Subtitle>
       </div>
-      <TotalPrice>$80.00</TotalPrice>
+      <TotalPrice>
+        ${discount && totalPrice ? totalPrice - discount : totalPrice}
+      </TotalPrice>
     </Wrapper>
   );
 }

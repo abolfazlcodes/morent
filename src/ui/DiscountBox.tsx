@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -34,11 +35,21 @@ const Button = styled.button`
   }
 `;
 
-function DiscountBox() {
+interface DiscountBoxProps {
+  handleDiscount: (code: string) => void;
+}
+
+function DiscountBox({ handleDiscount }: DiscountBoxProps) {
+  const [discountCode, setDiscountCode] = useState("");
+
   return (
     <Wrapper>
-      <Input placeholder='Apply promo code' type='text' />
-      <Button>Apply now</Button>
+      <Input
+        placeholder='Apply promo code'
+        type='text'
+        onChange={(e) => setDiscountCode(e.target.value)}
+      />
+      <Button onClick={() => handleDiscount(discountCode)}>Apply now</Button>
     </Wrapper>
   );
 }

@@ -1,10 +1,20 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { toast } from "react-hot-toast";
+
 import PaymentForm from "./PaymentForm";
 import BillingInfoStep from "./BillingInfoStep";
 import RentalInfoStep from "./RentalInfoStep";
 import ConfirmationStep from "./ConfirmationStep";
 import Button from "../../ui/Button";
-import PaymentCard from "./PaymentCard";
+import PaymentCardHeader from "./PaymentCardHeader";
+import LineSeparator from "../../ui/LineSeparator";
+import PaymentCardRow from "./PaymentCardRow";
+import DiscountBox from "../../ui/DiscountBox";
+import PaymentCardSummary from "./PaymentCardSummary";
+import { useCar } from "../cars/useCar";
+import Spinner from "../../ui/Spinner";
+import Empty from "../../ui/Empty";
 
 const StyledStep = styled.article`
   margin-bottom: 2rem;
@@ -13,7 +23,43 @@ const StyledStep = styled.article`
   border-radius: 1rem;
 `;
 
+const PaymentCard = styled.article`
+  flex: 1;
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  height: max-content;
+
+  @media screen and (max-width: 980px) {
+    flex: 1.5;
+  }
+`;
+
+const DISCOUNT_CODE = "EFx34AG";
+const DISCOUNT_PERCENT = 22;
+
 function AllPaymentSteps() {
+  const { isLoading, carData } = useCar();
+  const [discount, setDiscount] = useState(0);
+
+  const handleDiscount = (code: string) => {
+    if (!code) return;
+
+    if (code === DISCOUNT_CODE && carData?.pricePerDay) {
+      const discount = (DISCOUNT_PERCENT * carData?.pricePerDay) / 100;
+      setDiscount(discount);
+    }
+  };
+
+  useEffect(() => {
+    // showing a toast notification for promo code
+    toast(`You can use this promo code for a discount: ${DISCOUNT_CODE}`);
+  }, []);
+
+  if (isLoading) return <Spinner />;
+
+  if (!carData) return <Empty resource='Car was not found' />;
+
   return (
     <>
       <PaymentForm>
@@ -34,7 +80,21 @@ function AllPaymentSteps() {
         </Button>
       </PaymentForm>
 
-      <PaymentCard />
+      <PaymentCard>
+        <PaymentCardHeader />
+
+        <LineSeparator />
+
+        <PaymentCardRow title='subtotal' price='80.00' />
+        <PaymentCardRow title='Tax' price='0' />
+
+        <DiscountBox handleDiscount={handleDiscount} />
+
+        <PaymentCardSummary
+          totalPrice={carData?.pricePerDay}
+          discount={discount}
+        />
+      </PaymentCard>
     </>
   );
 }

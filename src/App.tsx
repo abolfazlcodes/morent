@@ -13,10 +13,8 @@ import { SideBarOpenProvider } from "./context/SidebarOpen";
 import ProtectedRoute from "./ui/ProtectedRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
-const Settings = lazy(() => import("./pages/Settings"));
 const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
-const Account = lazy(() => import("./pages/Account"));
 const Cars = lazy(() => import("./pages/Cars"));
 const SingleCar = lazy(() => import("./pages/Car"));
 const Payment = lazy(() => import("./pages/Payment"));
@@ -47,9 +45,7 @@ function App() {
                   <Route path='/cars' element={<Cars />} />
                   <Route path='/cars/:carId' element={<SingleCar />} />
                   <Route element={<ProtectedRoute />}>
-                    <Route path='/settings' element={<Settings />} />
-                    <Route path='/account' element={<Account />} />
-                    <Route path='/payment/:paymentId' element={<Payment />} />
+                    <Route path='/payment/:carId' element={<Payment />} />
                   </Route>
                 </Route>
 
