@@ -16,6 +16,10 @@ const Input = styled.input`
   color: var(--color-grey-400);
   font-size: 1.4rem;
   font-weight: 500;
+
+  @media screen and (max-width: 550px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Button = styled.button`
@@ -24,6 +28,10 @@ const Button = styled.button`
   color: #1a202c;
   font-size: 1.6rem;
   font-weight: 600;
+
+  @media screen and (max-width: 550px) {
+    font-size: 1.2rem;
+  }
 `;
 
 function DiscountBox() {

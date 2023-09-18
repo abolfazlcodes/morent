@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Heading from "./Heading";
-import image from "../assets/ad bg 2.png";
+import image from "../../assets/ad bg 2.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import Heading from "../../ui/Heading";
 
 const StyledDescription = styled.p`
   color: var(--color-grey-400);
@@ -9,6 +9,10 @@ const StyledDescription = styled.p`
   font-size: 1.4rem;
   font-weight: 500;
   margin: 1rem 0;
+
+  @media screen and (max-width: 550px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const StyledContainer = styled.div`
@@ -50,7 +54,9 @@ function PaymentCardHeader() {
         <StyledImageWrapper>
           <StyledImage src={image} alt='' effect='blur' />
         </StyledImageWrapper>
-        <Heading>Nissan GT - R</Heading>
+        <Heading as='h3' color='black'>
+          Nissan GT - R
+        </Heading>
       </StyledContainer>
     </>
   );

@@ -12,6 +12,10 @@ const StyledTitle = styled.span`
   text-transform: capitalize;
   font-size: 1.6rem;
   font-weight: 500;
+
+  @media screen and (max-width: 550px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const StyledPrice = styled.span`
