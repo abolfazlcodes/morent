@@ -35,7 +35,11 @@ function LoginForm() {
   }, [setFocus]);
 
   return (
-    <Form type='regular' onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      data-test='login-form'
+      type='regular'
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <FormRowVertical label='Email address' error={errors.email?.message}>
         <Input
           type='email'
@@ -62,6 +66,10 @@ function LoginForm() {
           placeholder='Your password'
           {...register("password", {
             required: "Please enter your password",
+            minLength: {
+              value: 8,
+              message: "Password must be at least 8 characters",
+            },
           })}
           disabled={isLoading || isLoadingLoginGithub}
         />
@@ -81,7 +89,12 @@ function LoginForm() {
       </LoginActionsWrapper>
 
       <FormRowVertical>
-        <Button size='large' variation='primary' disabled={isLoading}>
+        <Button
+          data-test='login-btn'
+          size='large'
+          variation='primary'
+          disabled={isLoading}
+        >
           {!isLoading || !isLoadingLoginGithub ? "Login" : <SpinnerMini />}
         </Button>
       </FormRowVertical>
