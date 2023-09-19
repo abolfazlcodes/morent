@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Heading from "../ui/Heading";
+import LinkButton from "../ui/LinkButton";
 
 const StyledCard = styled.div`
   background: white;
@@ -55,6 +56,7 @@ function PaymentSuccess() {
           We received your purchase request;
           <br /> we'll be in touch shortly!
         </StyledDescription>
+        <LinkButton to='/'> Home Page</LinkButton>
       </StyledCard>
     </>
   );
