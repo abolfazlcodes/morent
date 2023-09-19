@@ -1,4 +1,4 @@
-import{s as t,L as o}from"./index-8db93623.js";const e=t(o)`
+import{s as t,L as o}from"./index-f9ecd467.js";const e=t(o)`
   color: #3563e9;
   font-size: 1.6rem;
   text-transform: capitalize;

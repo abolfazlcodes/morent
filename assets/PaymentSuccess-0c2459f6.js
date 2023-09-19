@@ -1,4 +1,4 @@
-import{s as t,j as e,H as n}from"./index-8db93623.js";import{L as r}from"./LinkButton-502bb140.js";const i=t.div`
+import{s as t,j as e,H as n}from"./index-f9ecd467.js";import{L as r}from"./LinkButton-90706ca1.js";const i=t.div`
   background: white;
   padding: 60px;
   border-radius: 4px;

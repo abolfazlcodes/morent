@@ -1,4 +1,4 @@
-import{s as e,n as l,j as t}from"./index-8db93623.js";const n=e.div`
+import{s as e,n as l,j as t}from"./index-f9ecd467.js";const n=e.div`
   display: flex;
   gap: 0.8rem;
   padding: 1.2rem 0;
@@ -25,4 +25,4 @@ import{s as e,n as l,j as t}from"./index-8db93623.js";const n=e.div`
 `,c=e.span`
   font-size: 1.4rem;
   color: var(--color-red-700);
-`;n.defaultProps={type:"vertical"};function d({label:o,error:s,children:r,type:i="vertical"}){var a;return t.jsxs(n,{type:i,children:[o&&t.jsx(p,{htmlFor:(a=r==null?void 0:r.props)==null?void 0:a.id,children:o}),r,s&&t.jsx(c,{children:s})]})}export{d as F};
+`;n.defaultProps={type:"vertical"};function d({label:o,error:s,children:r,type:i="vertical"}){var a;return t.jsxs(n,{"data-test":"form-row",type:i,children:[o&&t.jsx(p,{htmlFor:(a=r==null?void 0:r.props)==null?void 0:a.id,children:o}),r,s&&t.jsx(c,{children:s})]})}export{d as F};
