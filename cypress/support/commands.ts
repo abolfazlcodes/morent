@@ -35,3 +35,67 @@
 //     }
 //   }
 // }
+
+namespace Cypress {
+  interface Chainable {
+    signIn(
+      redirectPath?: string,
+      credentials?: { email: string; password: string }
+    ): void;
+  }
+}
+
+function getClient() {
+  const url = Cypress.env(`VITE_BASE_URL`);
+  const key = Cypress.env(`VITE_API_KEY`);
+
+  invariant(url, `Missing SUPABASE_URL env variable`);
+  invariant(key, `Missing SUPABASE_ANON_KEY env variable`);
+
+  return createBrowserClient(url, key);
+}
+
+function signInProgrammatically(credentials: {
+  email: string;
+  password: string;
+}) {
+  const { email, password } = credentials;
+
+  return getClient()
+    .auth.signInWithPassword({
+      email,
+      password,
+    })
+    .then((response) => {
+      if (response.error) {
+        return Promise.reject(response.error.message);
+      }
+    })
+    .catch((e) => {
+      console.error(e);
+
+      return Promise.reject(e);
+    });
+}
+
+Cypress.Commands.add(
+  "signIn",
+  (
+    redirectPath = "/",
+    credentials = {
+      email: Cypress.env(`EMAIL`) as string,
+      password: Cypress.env(`PASSWORD`) as string,
+    }
+  ) => {
+    cy.session([credentials.email, credentials.password], () => {
+      cy.log(`Signing in with ${credentials.email}`);
+      signInProgrammatically(credentials);
+    });
+
+    cy.visit(redirectPath);
+  }
+);
+
+Cypress.Commands.add("getByTestId", (dataTestSelector) => {
+  return cy.get(`[data-test]="${dataTestSelector}"`);
+});
