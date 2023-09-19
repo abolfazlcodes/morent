@@ -59,7 +59,7 @@ function FormRowVertical({
   type = "vertical",
 }: FormVerticalProps) {
   return (
-    <StyledFormRow type={type}>
+    <StyledFormRow data-test='form-row' type={type}>
       {label && <Label htmlFor={children?.props?.id}>{label}</Label>}
       {children}
       {error && <Error>{error}</Error>}
