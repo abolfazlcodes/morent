@@ -18,6 +18,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Cars = lazy(() => import("./pages/Cars"));
 const SingleCar = lazy(() => import("./pages/Car"));
 const Payment = lazy(() => import("./pages/Payment"));
+const PaymentSuccess = lazy(() => import("./pages/PaymentSuccess"));
 
 // creating the react query
 const queryClient = new QueryClient({
@@ -46,6 +47,10 @@ function App() {
                   <Route path='/cars/:carId' element={<SingleCar />} />
                   <Route element={<ProtectedRoute />}>
                     <Route path='/payment/:carId' element={<Payment />} />
+                    <Route
+                      path='/paymentSuccess'
+                      element={<PaymentSuccess />}
+                    />
                   </Route>
                 </Route>
 

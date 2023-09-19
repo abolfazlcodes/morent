@@ -12,6 +12,9 @@ import Spinner from "../../ui/Spinner";
 import Empty from "../../ui/Empty";
 import { DISCOUNT_CODE, DISCOUNT_PERCENT } from "../../constants";
 import PaymentCard from "./PaymentCard";
+import { useNavigate } from "react-router-dom";
+import SpinnerMini from "../../ui/SpinnerMini";
+import { checkProperties } from "../../utils/checkPaymentForm";
 
 const StyledStep = styled.article`
   margin-bottom: 2rem;
@@ -23,6 +26,7 @@ const StyledStep = styled.article`
 function AllPaymentSteps() {
   const { isLoading, carData } = useCar();
   const [discount, setDiscount] = useState(0);
+  const navigate = useNavigate();
   const [paymentInformation, setPaymentInformation] = useState<{
     [x: string]: string | boolean;
   }>({
@@ -39,6 +43,7 @@ function AllPaymentSteps() {
     newsletter: false,
     policies: false,
   });
+  const [isPaymentLoading, setIsPaymentLoading] = useState(false);
 
   const paymentFormChangeHandler = (e: Event) => {
     const { target } = e;
@@ -71,6 +76,16 @@ function AllPaymentSteps() {
     }
   };
 
+  const handlePayment = () => {
+    const result = checkProperties(paymentInformation);
+    if (result) {
+      setIsPaymentLoading(true);
+      setTimeout(() => {
+        navigate("/paymentSuccess");
+      }, 5000);
+    }
+  };
+
   useEffect(() => {
     // showing a toast notification for promo code
     toast(`You can use this promo code for a discount: ${DISCOUNT_CODE}`);
@@ -95,8 +110,8 @@ function AllPaymentSteps() {
           <ConfirmationStep handleChange={paymentFormChangeHandler} />
         </StyledStep>
 
-        <Button size='medium' variation='primary'>
-          Rent Now
+        <Button size='medium' variation='primary' onClick={handlePayment}>
+          {isPaymentLoading ? <SpinnerMini /> : "Rent Now"}
         </Button>
       </PaymentForm>
 
