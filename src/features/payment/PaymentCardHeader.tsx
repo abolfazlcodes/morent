@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Heading from "../../ui/Heading";
+import { memo } from "react";
 
 const StyledDescription = styled.p`
   color: var(--color-grey-400);
@@ -41,7 +42,7 @@ interface PaymentHeaderProps {
   image: string;
 }
 
-function PaymentCardHeader({ image, name }: PaymentHeaderProps) {
+const PaymentCardHeader = memo(function ({ image, name }: PaymentHeaderProps) {
   return (
     <>
       <header>
@@ -64,6 +65,6 @@ function PaymentCardHeader({ image, name }: PaymentHeaderProps) {
       </StyledContainer>
     </>
   );
-}
+});
 
 export default PaymentCardHeader;

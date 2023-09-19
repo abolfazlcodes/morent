@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { memo } from "react";
 
 const StyledWrapper = styled.div`
   padding: 1rem 0;
@@ -30,13 +31,13 @@ interface PaymentCardRowProps {
   price: string | number;
 }
 
-function PaymentCardRow({ price, title }: PaymentCardRowProps) {
+const PaymentCardRow = memo(function ({ price, title }: PaymentCardRowProps) {
   return (
     <StyledWrapper>
       <StyledTitle>{title}</StyledTitle>
       <StyledPrice>${price}</StyledPrice>
     </StyledWrapper>
   );
-}
+});
 
 export default PaymentCardRow;

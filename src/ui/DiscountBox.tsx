@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -39,7 +39,7 @@ interface DiscountBoxProps {
   handleDiscount: (code: string) => void;
 }
 
-function DiscountBox({ handleDiscount }: DiscountBoxProps) {
+const DiscountBox = memo(function ({ handleDiscount }: DiscountBoxProps) {
   const [discountCode, setDiscountCode] = useState("");
 
   return (
@@ -52,6 +52,6 @@ function DiscountBox({ handleDiscount }: DiscountBoxProps) {
       <Button onClick={() => handleDiscount(discountCode)}>Apply now</Button>
     </Wrapper>
   );
-}
+});
 
 export default DiscountBox;

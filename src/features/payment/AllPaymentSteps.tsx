@@ -7,33 +7,17 @@ import BillingInfoStep from "./BillingInfoStep";
 import RentalInfoStep from "./RentalInfoStep";
 import ConfirmationStep from "./ConfirmationStep";
 import Button from "../../ui/Button";
-import PaymentCardHeader from "./PaymentCardHeader";
-import LineSeparator from "../../ui/LineSeparator";
-import PaymentCardRow from "./PaymentCardRow";
-import DiscountBox from "../../ui/DiscountBox";
-import PaymentCardSummary from "./PaymentCardSummary";
 import { useCar } from "../cars/useCar";
 import Spinner from "../../ui/Spinner";
 import Empty from "../../ui/Empty";
 import { DISCOUNT_CODE, DISCOUNT_PERCENT } from "../../constants";
+import PaymentCard from "./PaymentCard";
 
 const StyledStep = styled.article`
   margin-bottom: 2rem;
   background-color: #fff;
   padding: 1.5rem;
   border-radius: 1rem;
-`;
-
-const PaymentCard = styled.article`
-  flex: 1;
-  background-color: #fff;
-  border-radius: 1rem;
-  padding: 1rem 2rem;
-  height: max-content;
-
-  @media screen and (max-width: 980px) {
-    flex: 1.5;
-  }
 `;
 
 function AllPaymentSteps() {
@@ -116,20 +100,13 @@ function AllPaymentSteps() {
         </Button>
       </PaymentForm>
 
-      <PaymentCard>
-        <PaymentCardHeader name={carData.name} image={carData.thumbnail} />
-        <LineSeparator />
-
-        <PaymentCardRow title='subtotal' price={carData.pricePerDay} />
-        <PaymentCardRow title='Tax' price='0' />
-
-        {!discount && <DiscountBox handleDiscount={handleDiscount} />}
-
-        <PaymentCardSummary
-          totalPrice={carData?.pricePerDay}
-          discount={discount}
-        />
-      </PaymentCard>
+      <PaymentCard
+        discount={discount}
+        handleDiscount={handleDiscount}
+        name={carData.name}
+        pricePerDay={carData.pricePerDay}
+        thumbnail={carData.thumbnail}
+      />
     </>
   );
 }

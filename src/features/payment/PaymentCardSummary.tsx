@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Heading from "../../ui/Heading";
+import { memo } from "react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,7 +33,10 @@ interface SummaryProps {
   discount?: number | undefined;
 }
 
-function PaymentCardSummary({ totalPrice, discount }: SummaryProps) {
+const PaymentCardSummary = memo(function ({
+  totalPrice,
+  discount,
+}: SummaryProps) {
   return (
     <Wrapper>
       <div>
@@ -48,6 +52,6 @@ function PaymentCardSummary({ totalPrice, discount }: SummaryProps) {
       </TotalPrice>
     </Wrapper>
   );
-}
+});
 
 export default PaymentCardSummary;
