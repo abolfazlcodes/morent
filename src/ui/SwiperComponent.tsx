@@ -14,7 +14,7 @@ function SwiperComponent({ children }: SwiperComponentProps) {
       slidesPerView={4}
       grabCursor={true}
       style={{
-        width: "95%",
+        width: "100%",
       }}
       breakpoints={{
         1160: {

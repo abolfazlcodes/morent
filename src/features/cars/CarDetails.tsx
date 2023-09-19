@@ -103,7 +103,7 @@ function CarDetails() {
 
         {cars && cars?.length < 1 && <Empty resource='cars' />}
 
-        {cars?.slice(0, 7).map((item) => (
+        {cars?.slice(0, 5).map((item) => (
           <SwiperSlide key={item.id}>
             <CarCard carData={item} />
           </SwiperSlide>
@@ -122,7 +122,7 @@ function CarDetails() {
 
         {cars && cars?.length < 1 && <Empty resource='cars' />}
 
-        {cars?.slice(6, 12).map((item) => (
+        {cars?.slice(5, 10).map((item) => (
           <SwiperSlide key={item.id}>
             <CarCard carData={item} />
           </SwiperSlide>

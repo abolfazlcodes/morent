@@ -13,12 +13,12 @@ import { SideBarOpenProvider } from "./context/SidebarOpen";
 import ProtectedRoute from "./ui/ProtectedRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
-const Settings = lazy(() => import("./pages/Settings"));
 const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
-const Account = lazy(() => import("./pages/Account"));
 const Cars = lazy(() => import("./pages/Cars"));
 const SingleCar = lazy(() => import("./pages/Car"));
+const Payment = lazy(() => import("./pages/Payment"));
+const PaymentSuccess = lazy(() => import("./pages/PaymentSuccess"));
 
 // creating the react query
 const queryClient = new QueryClient({
@@ -46,11 +46,10 @@ function App() {
                   <Route path='/cars' element={<Cars />} />
                   <Route path='/cars/:carId' element={<SingleCar />} />
                   <Route element={<ProtectedRoute />}>
-                    <Route path='/settings' element={<Settings />} />
-                    <Route path='/account' element={<Account />} />
+                    <Route path='/payment/:carId' element={<Payment />} />
                     <Route
-                      path='/payment/:paymentId'
-                      element={<span>payment page</span>}
+                      path='/paymentSuccess'
+                      element={<PaymentSuccess />}
                     />
                   </Route>
                 </Route>
