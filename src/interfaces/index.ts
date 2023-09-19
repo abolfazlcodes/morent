@@ -1,5 +1,6 @@
+import { ChangeEvent } from "react";
 export interface PaymentStepsProps {
-  handleChange: (e: Event) => void;
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface PaymentForm {

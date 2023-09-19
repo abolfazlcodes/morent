@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import styled from "styled-components";
 import { toast } from "react-hot-toast";
-
 import PaymentForm from "./PaymentForm";
 import BillingInfoStep from "./BillingInfoStep";
 import RentalInfoStep from "./RentalInfoStep";
@@ -45,7 +44,7 @@ function AllPaymentSteps() {
   });
   const [isPaymentLoading, setIsPaymentLoading] = useState(false);
 
-  const paymentFormChangeHandler = (e: Event) => {
+  const paymentFormChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { target } = e;
 
     const isCheckbox =
