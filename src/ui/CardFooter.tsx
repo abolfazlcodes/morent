@@ -36,7 +36,7 @@ function CardFooter({ link, pricePerDay, btnSize = "small" }: CardFooterProps) {
 
       <Link to={link}>
         <Button size={btnSize} variation='primary'>
-          Rent now
+          Pay now
         </Button>
       </Link>
     </StyledCardFooter>

@@ -45,3 +45,6 @@ export const reviewsData = [
       "Morent has a low price and also a large variety of cars with good and comfortable acilities. In addition, the service provided by the officers is also very friendly and very polite.",
   },
 ];
+
+export const DISCOUNT_CODE = "EFx34AG";
+export const DISCOUNT_PERCENT = 22;
